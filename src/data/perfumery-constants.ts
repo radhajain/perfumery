@@ -21,12 +21,13 @@ export const aromachemicals: Aromachemical[] = [
 		substantivity:
 			'It is exceptionally long-lasting, often remaining detectable for over 400+ hours on a smelling strip. It serves as a major fixative for the heart of the perfume.',
 		impactSillage:
-			'It has a moderate, elegant sillage; it doesn’t project aggressively, but it creates a radiant "halo" effect that surrounds the wearer.',
+			"It has a moderate, elegant sillage; it doesn't project aggressively, but it creates a radiant halo effect that surrounds the wearer.",
 		dilution:
 			'Commonly used at 10% in DPG for sketching, but can be used at 100% in compounds. It is soluble in Alcohol, DPG, and IPM.',
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pairs beautifully with Ethyl Linalool (14) to create a "transparent" floral musk that feels modern and airy.',
+		popularity: 6,
 	},
 	{
 		id: 2,
@@ -50,6 +51,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Iso E Super (30) to create the "Modern Masculine" skeleton found in scents like Dior Sauvage.',
+		popularity: 10,
 	},
 	{
 		id: 3,
@@ -73,6 +75,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'Restricted based on Hydroxycitronellal content.',
 		pairingDetail:
 			'Pair with Linalool (29) to create a realistic, woody orange blossom accord.',
+		popularity: 4,
 	},
 	{
 		id: 4,
@@ -95,6 +98,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Essential with Phenethyl Alcohol (42) to balance its "candy" sweetness with "watery" realism.',
+		popularity: 9,
 	},
 	{
 		id: 5,
@@ -122,6 +126,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction, but self-limiting.',
 		pairingDetail:
 			'Pair with Dimethyl Octenone (12) to create a modern, violet-leaf marine accord.',
+		popularity: 7,
 	},
 	{
 		id: 6,
@@ -149,6 +154,7 @@ export const aromachemicals: Aromachemical[] = [
 			'Restricted (Category 4 limits apply to avoid skin sensitization).',
 		pairingDetail:
 			'Pair with Citronellol (7) to create a "citrus-rose" freshness that feels natural.',
+		popularity: 8,
 	},
 	{
 		id: 7,
@@ -171,6 +177,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'Restricted as a potential allergen.',
 		pairingDetail:
 			'Combine with Geraniol (21) and Phenethyl Alcohol (42) for a classic "Tea Rose" accord.',
+		popularity: 9,
 	},
 	{
 		id: 8,
@@ -194,6 +201,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'Restricted (check Category 4 limits).',
 		pairingDetail:
 			'Pair with cis-3-Hexenol (26) to create a "wet, green flower" effect.',
+		popularity: 7,
 	},
 	{
 		id: 9,
@@ -217,6 +225,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'Restricted (check Category 4 limits).',
 		pairingDetail:
 			'Pair with Vanillin (51) to create a "Spiced Vanilla" or "Gingerbread" effect.',
+		popularity: 3,
 	},
 	{
 		id: 10,
@@ -239,6 +248,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Linalyl Acetate (32) to reinforce the "citrus-clean" facet.',
+		popularity: 9,
 	},
 	{
 		id: 11,
@@ -261,6 +271,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Benzyl Acetate (4) to create a "Fruity Jasmine" accord.',
+		popularity: 4,
 	},
 	{
 		id: 12,
@@ -283,6 +294,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with cis-3-Hexenyl Acetate (27) for a "wet green leaf" effect.',
+		popularity: 3,
 	},
 	{
 		id: 13,
@@ -310,6 +322,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Combine with Vanillin (51) to create the "creamy/lactonic" sandalwood effect.',
+		popularity: 6,
 	},
 	{
 		id: 14,
@@ -332,6 +345,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Linalyl Acetate (32) for a "high-end Earl Grey tea" accord.',
+		popularity: 7,
 	},
 	{
 		id: 15,
@@ -355,6 +369,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Essential with Vanillin (51) to prevent the "sugar" from smelling too metallic.',
+		popularity: 8,
 	},
 	{
 		id: 16,
@@ -377,6 +392,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Ambroxan (2) to modernize a vanilla base with a "salty" edge.',
+		popularity: 9,
 	},
 	{
 		id: 17,
@@ -399,6 +415,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Phenethyl Alcohol (42) to extend the life of a rose accord.',
+		popularity: 9,
 	},
 	{
 		id: 18,
@@ -421,6 +438,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Ambrettolide (1) for a "full-spectrum" high-end musk accord.',
+		popularity: 7,
 	},
 	{
 		id: 19,
@@ -443,6 +461,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'Restricted (check Category 4 limits).',
 		pairingDetail:
 			'Pair with Cyclamen Aldehyde (8) to create a "Dewy Lily" accord.',
+		popularity: 5,
 	},
 	{
 		id: 20,
@@ -464,6 +483,7 @@ export const aromachemicals: Aromachemical[] = [
 		dilution: 'Often sold as 50% in IPM or BB; it is incredibly thick neat.',
 		ifraLimit: 'No restriction, but under environmental scrutiny.',
 		pairingDetail: 'Combine with Iso E Super (30) for a "clean skin" base.',
+		popularity: 10,
 	},
 	{
 		id: 21,
@@ -484,6 +504,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'Restricted as an allergen.',
 		pairingDetail:
 			'Pair with Geranyl Acetate (22) to add a "fruity/lavender" top to the rose.',
+		popularity: 9,
 	},
 	{
 		id: 22,
@@ -505,6 +526,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Linalyl Acetate (32) for a "fresh/aromatic" floral opening.',
+		popularity: 8,
 	},
 	{
 		id: 23,
@@ -526,6 +548,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Ambrettolide (1) for a "high-tech" clean musk accord.',
+		popularity: 7,
 	},
 	{
 		id: 24,
@@ -547,6 +570,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Must be paired with Linalool (29) for a professional "airy" opening.',
+		popularity: 10,
 	},
 	{
 		id: 25,
@@ -567,6 +591,7 @@ export const aromachemicals: Aromachemical[] = [
 		dilution: 'Used at 10% in DPG.',
 		ifraLimit: 'Restricted (check Category 4 limits).',
 		pairingDetail: 'Pair with Calone (5) for a "modern aquatic" floral accord.',
+		popularity: 7,
 	},
 	{
 		id: 26,
@@ -589,6 +614,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Hexenyl Acetate (27) to soften the "sharp grass" edge.',
+		popularity: 6,
 	},
 	{
 		id: 27,
@@ -608,6 +634,7 @@ export const aromachemicals: Aromachemical[] = [
 		dilution: 'Used at 10% or 1% in DPG.',
 		ifraLimit: 'No restriction.',
 		pairingDetail: 'Pair with Calone (5) for a "watery-green fruit" opening.',
+		popularity: 6,
 	},
 	{
 		id: 28,
@@ -630,6 +657,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Linalool (29) to add "heft" and "silkiness" to the floral heart.',
+		popularity: 7,
 	},
 	{
 		id: 29,
@@ -652,6 +680,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'Restricted as an allergen.',
 		pairingDetail:
 			'Pair with Linalyl Acetate (32) for a classic "Lavender/Bergamot" structure.',
+		popularity: 10,
 	},
 	{
 		id: 30,
@@ -674,6 +703,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'Restricted to 21.4% in the final product.',
 		pairingDetail:
 			'Pair with Ambroxan (2) for a modern, transparent woody base.',
+		popularity: 10,
 	},
 	{
 		id: 31,
@@ -694,6 +724,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Essential with Benzyl Acetate (4) to turn "jasmine candy" into "real jasmine."',
+		popularity: 4,
 	},
 	{
 		id: 32,
@@ -715,6 +746,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Hedione (24) for a radiant, "luminous" citrus opening.',
+		popularity: 9,
 	},
 	{
 		id: 33,
@@ -736,6 +768,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Benzyl Acetate (4) to create a "Ylang-Ylang" opening.',
+		popularity: 5,
 	},
 	{
 		id: 34,
@@ -759,6 +792,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'Restricted (check Category 4 limits).',
 		pairingDetail:
 			'Pair with Dihydro Eugenol (9) for a realistic, spicy carnation accord.',
+		popularity: 4,
 	},
 	{
 		id: 35,
@@ -780,6 +814,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Exaltolide (18) for a "creamy, skin-like" muskiness.',
+		popularity: 3,
 	},
 	{
 		id: 36,
@@ -801,6 +836,7 @@ export const aromachemicals: Aromachemical[] = [
 			'No restriction, but watch out for phototoxicity in natural citrus oils.',
 		pairingDetail:
 			'Pair with Citral (6) for a "complete lemon-orange" opening.',
+		popularity: 8,
 	},
 	{
 		id: 37,
@@ -821,6 +857,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Indolene (31) for a realistic, "animalic" orange blossom.',
+		popularity: 5,
 	},
 	{
 		id: 38,
@@ -840,6 +877,7 @@ export const aromachemicals: Aromachemical[] = [
 		dilution: 'Used at 1% or 0.1% in DPG; it is very potent.',
 		ifraLimit: 'No restriction.',
 		pairingDetail: 'Pair with Ambroxan (2) for a "dirty mineral" dry-down.',
+		popularity: 4,
 	},
 	{
 		id: 39,
@@ -859,6 +897,7 @@ export const aromachemicals: Aromachemical[] = [
 		dilution: 'Used at 10% in DPG.',
 		ifraLimit: 'No restriction.',
 		pairingDetail: 'Pair with Citronellol (7) to create a "Peony Rose" accord.',
+		popularity: 5,
 	},
 	{
 		id: 40,
@@ -880,6 +919,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Linalyl Acetate (32) for a "classic Mediterranean" cologne opening.',
+		popularity: 6,
 	},
 	{
 		id: 41,
@@ -901,6 +941,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Phenethyl Alcohol (42) to create a "complete rose" transition.',
+		popularity: 7,
 	},
 	{
 		id: 42,
@@ -921,6 +962,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Must be paired with Citronellol (7) and Geraniol (21) for a realistic rose.',
+		popularity: 10,
 	},
 	{
 		id: 43,
@@ -941,6 +983,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Phenethyl Alcohol (42) to add "depth" to its modern tea-like profile.',
+		popularity: 3,
 	},
 	{
 		id: 44,
@@ -966,6 +1009,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Phenethyl Alcohol (42) to "naturalize" a synthetic rose.',
+		popularity: 6,
 	},
 	{
 		id: 45,
@@ -987,6 +1031,7 @@ export const aromachemicals: Aromachemical[] = [
 		dilution: 'Used at 10% or 1% in DPG.',
 		ifraLimit: 'No restriction.',
 		pairingDetail: 'Pair with Calone (5) for a "wet, vegetal garden" accord.',
+		popularity: 5,
 	},
 	{
 		id: 46,
@@ -1007,6 +1052,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with DMBCA (11) for a realistic, "tart gardenia" opening.',
+		popularity: 7,
 	},
 	{
 		id: 47,
@@ -1027,6 +1073,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Dihydro Myrcenol (10) for a "high-performance clean" accord.',
+		popularity: 6,
 	},
 	{
 		id: 48,
@@ -1047,6 +1094,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Ebanol (13) for a "ultra-creamy" sandalwood base.',
+		popularity: 3,
 	},
 	{
 		id: 49,
@@ -1068,6 +1116,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Dihydro Myrcenol (10) for a "high-tech laundry" marine opening.',
+		popularity: 4,
 	},
 	{
 		id: 50,
@@ -1087,6 +1136,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Pair with Stemone (45) for a realistic "fig-leaf-and-water" accord.',
+		popularity: 5,
 	},
 	{
 		id: 51,
@@ -1107,6 +1157,7 @@ export const aromachemicals: Aromachemical[] = [
 		ifraLimit: 'No restriction.',
 		pairingDetail:
 			'Combine with Ethyl Maltol (15) for a "sugar-and-custard" gourmand base.',
+		popularity: 9,
 	},
 ];
 

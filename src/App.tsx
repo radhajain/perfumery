@@ -2,6 +2,7 @@ import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { Header } from './components/Header/Header';
 import { NetworkGraph } from './components/NetworkGraph/NetworkGraph';
 import { DetailPanel } from './components/DetailPanel/DetailPanel';
+import { Legend } from './components/common/Legend';
 import { aromachemicals, familyOrder, families } from './data/perfumery-constants';
 import { calculateGraphLayout } from './utils/graphLayout';
 import { calculateEdges } from './utils/edgeCalculator';
@@ -78,11 +79,17 @@ function App() {
     setSelectedNodeId(null);
   }, []);
 
+  const handleSearchResultClick = useCallback((id: number) => {
+    setSelectedNodeId(id);
+  }, []);
+
   return (
     <div className="app">
       <Header
         searchQuery={searchInput}
         onSearchChange={handleSearchChange}
+        aromachemicals={aromachemicals}
+        onSearchResultClick={handleSearchResultClick}
       />
       <main className="main-content">
         <NetworkGraph
@@ -94,6 +101,7 @@ function App() {
           onNodeHover={handleNodeHover}
           dimensions={dimensions}
         />
+        <Legend families={families} familyOrder={familyOrder} />
         {selectedAromachemical && (
           <DetailPanel
             aromachemical={selectedAromachemical}

@@ -124,7 +124,8 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({
 						alt={`Chemical structure of ${aromachemical.name}`}
 						imageUrl={
 							aromachemical.chemicalImageUrl ||
-							chemicalStructures[aromachemical.id]
+							chemicalStructures[aromachemical.id] ||
+							undefined
 						}
 					/>
 					<p className="detail-panel__formula">{aromachemical.structure}</p>

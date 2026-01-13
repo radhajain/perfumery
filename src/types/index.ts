@@ -32,12 +32,14 @@ export interface Aromachemical {
 	pairingDetail: string;
 	imageUrl?: string;
 	chemicalImageUrl?: string;
+	popularity: number;
 }
 
 // Graph visualization types
 export interface GraphNode {
 	id: number;
 	name: string;
+	description: string;
 	family: ScentFamily;
 	note: NoteType;
 	x: number;
