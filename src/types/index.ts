@@ -16,6 +16,8 @@ export interface Aromachemical {
   perfumes: string[];
   pairings: number[];
   structure: string;
+  imageUrl?: string;
+  chemicalImageUrl?: string;
 }
 
 // Graph visualization types

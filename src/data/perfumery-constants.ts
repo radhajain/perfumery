@@ -704,17 +704,17 @@ export const aromachemicals: Aromachemical[] = [
 ];
 
 export const families: Record<ScentFamily, string> = {
-	floral: '#E8D5D5',
-	citrus: '#F5E6C8',
-	woody: '#D4C4A8',
-	musk: '#E5DDD5',
-	amber: '#DEB887',
-	marine: '#C5D8E8',
-	green: '#C8DBC8',
-	gourmand: '#E8D0C0',
-	spicy: '#D4A574',
-	fruity: '#F0D4D4',
-	animalic: '#C9B896',
+	floral: '#E8B5C5',
+	citrus: '#F5D68A',
+	woody: '#C4A570',
+	musk: '#D5C5B5',
+	amber: '#D4A050',
+	marine: '#95C8E8',
+	green: '#98D898',
+	gourmand: '#E8B090',
+	spicy: '#C48550',
+	fruity: '#F0A4B4',
+	animalic: '#B9A876',
 };
 
 export const familyOrder: ScentFamily[] = [
