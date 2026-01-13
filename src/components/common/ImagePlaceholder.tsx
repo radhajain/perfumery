@@ -5,13 +5,31 @@ interface ImagePlaceholderProps {
   type: 'chemical' | 'visual';
   aspectRatio: string;
   alt: string;
+  imageUrl?: string;
 }
 
 export const ImagePlaceholder: React.FC<ImagePlaceholderProps> = ({
   type,
   aspectRatio,
   alt,
+  imageUrl,
 }) => {
+  if (imageUrl) {
+    return (
+      <div
+        className={`image-placeholder image-placeholder--${type} image-placeholder--with-image`}
+        style={{ aspectRatio }}
+      >
+        <img
+          src={imageUrl}
+          alt={alt}
+          className="image-placeholder__img"
+          loading="lazy"
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       className={`image-placeholder image-placeholder--${type}`}
