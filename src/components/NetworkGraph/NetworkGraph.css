@@ -1,0 +1,35 @@
+.network-graph {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-ivory);
+  overflow: hidden;
+}
+
+.network-graph__svg {
+  display: block;
+}
+
+.graph-edge {
+  transition: stroke-opacity var(--transition-base);
+}
+
+.graph-node {
+  transition: all var(--transition-fast);
+}
+
+.graph-node:hover {
+  filter: brightness(1.1);
+}
+
+.graph-node:focus {
+  outline: none;
+  filter: brightness(1.1);
+}
+
+.node-label {
+  font-weight: 500;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+  animation: fadeIn var(--transition-fast);
+}

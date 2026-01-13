@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap');
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  color: var(--color-text-primary);
+  margin: 0;
+}
+
+h1 {
+  font-size: 2.5rem;
+  letter-spacing: 0.02em;
+}
+
+h2 {
+  font-size: 1.75rem;
+  letter-spacing: 0.01em;
+}
+
+h3 {
+  font-size: 1.25rem;
+}
+
+body, p, span, input, button {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+}
+
+p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  color: var(--color-warm-gray);
+}

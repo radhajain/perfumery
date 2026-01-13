@@ -1,0 +1,41 @@
+.image-placeholder {
+  width: 100%;
+  background: linear-gradient(135deg, var(--color-ivory) 0%, var(--color-taupe) 100%);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.image-placeholder--chemical {
+  background: linear-gradient(135deg, #F5F5F5 0%, #E8E8E8 100%);
+  color: var(--color-warm-gray);
+}
+
+.image-placeholder--visual {
+  background: linear-gradient(135deg, var(--color-ivory) 0%, var(--color-taupe) 100%);
+}
+
+.image-placeholder__content {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.placeholder-icon {
+  width: 50%;
+  height: 50%;
+  opacity: 0.3;
+}
+
+.placeholder-gradient {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 30% 40%, rgba(212, 196, 180, 0.3) 0%, transparent 60%),
+              radial-gradient(circle at 70% 60%, rgba(250, 248, 245, 0.5) 0%, transparent 60%);
+  animation: pulseGlow 3s ease-in-out infinite;
+}

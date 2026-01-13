@@ -1,0 +1,31 @@
+.pairing-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border: 1px solid var(--color-taupe);
+  border-radius: var(--radius-full);
+  background: white;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: var(--color-text-primary);
+  transition: all var(--transition-fast);
+  margin: var(--spacing-xs);
+}
+
+.pairing-chip:hover {
+  background-color: var(--color-ivory);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.pairing-chip__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.pairing-chip__name {
+  font-weight: 500;
+}

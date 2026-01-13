@@ -1,0 +1,168 @@
+.detail-panel {
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 400px;
+  height: 100vh;
+  background: var(--color-ivory);
+  box-shadow: var(--shadow-lg);
+  overflow-y: auto;
+  padding: var(--spacing-xl);
+  z-index: 100;
+}
+
+.detail-panel__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: var(--spacing-xl);
+  gap: var(--spacing-md);
+}
+
+.detail-panel__name {
+  font-size: 1.75rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.detail-panel__badges {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.detail-panel__badge {
+  display: inline-block;
+  padding: var(--spacing-xs) var(--spacing-md);
+  border-radius: var(--radius-full);
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--color-text-primary);
+}
+
+.detail-panel__badge--note {
+  background: var(--color-taupe);
+}
+
+.detail-panel__close {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-warm-gray);
+  transition: all var(--transition-fast);
+  border-radius: var(--radius-sm);
+  flex-shrink: 0;
+}
+
+.detail-panel__close:hover {
+  background: var(--color-taupe);
+  color: var(--color-text-primary);
+}
+
+.detail-panel__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+}
+
+.detail-panel__section {
+  padding-bottom: var(--spacing-lg);
+  border-bottom: 1px solid rgba(212, 196, 180, 0.3);
+}
+
+.detail-panel__section:last-child {
+  border-bottom: none;
+}
+
+.detail-panel__section-title {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-warm-gray);
+  margin-bottom: var(--spacing-md);
+  font-weight: 600;
+}
+
+.detail-panel__formula {
+  text-align: center;
+  font-family: 'Courier New', monospace;
+  font-size: 1.1rem;
+  color: var(--color-warm-gray);
+  margin-top: var(--spacing-sm);
+  font-weight: 500;
+}
+
+.detail-panel__perfume-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.detail-panel__perfume-list li {
+  padding-left: var(--spacing-md);
+  position: relative;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--color-text-secondary);
+}
+
+.detail-panel__perfume-list li::before {
+  content: '·';
+  position: absolute;
+  left: 0;
+  color: var(--color-warm-gray);
+  font-weight: bold;
+}
+
+.detail-panel__pairings {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+  margin: calc(var(--spacing-xs) * -1);
+}
+
+@media (max-width: 1024px) {
+  .detail-panel {
+    width: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .detail-panel {
+    width: 100%;
+    height: 50vh;
+    top: auto;
+    bottom: 0;
+    right: 0;
+  }
+}
+
+/* Smooth scrollbar */
+.detail-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.detail-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.detail-panel::-webkit-scrollbar-thumb {
+  background: var(--color-taupe);
+  border-radius: var(--radius-full);
+}
+
+.detail-panel::-webkit-scrollbar-thumb:hover {
+  background: var(--color-warm-gray);
+}
