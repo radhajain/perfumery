@@ -19,7 +19,10 @@ export const Header: React.FC<HeaderProps> = ({
 	return (
 		<header className="header">
 			<div className="header__content">
-				<h1 className="header__title">Perfumery Reference</h1>
+				<div className="header__title-container">
+					<img src="/logo.png" alt="Perfumery Logo" className="header__logo" />
+					<h1 className="header__title">Perfumery: molecular exploration</h1>
+				</div>
 				<SearchBar
 					value={searchQuery}
 					onChange={onSearchChange}

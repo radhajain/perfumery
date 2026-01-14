@@ -20,16 +20,38 @@ function calculateNoteY(note: NoteType, height: number): number {
 function calculateFamilyColumns(
 	width: number,
 	families: ScentFamily[],
-	familyColors: Record<ScentFamily, string>
+	familyColors: Record<ScentFamily, string>,
+	aromachemicals: Aromachemical[]
 ): FamilyColumn[] {
-	const columnWidth = width / families.length;
+	// Count items per family
+	const familyCounts = new Map<ScentFamily, number>();
+	aromachemicals.forEach((aroma) => {
+		familyCounts.set(aroma.family, (familyCounts.get(aroma.family) || 0) + 1);
+	});
 
-	return families.map((family, index) => ({
-		family,
-		x: (index + 0.5) * columnWidth,
-		width: columnWidth,
-		color: familyColors[family],
-	}));
+	// Calculate total weighted width units
+	// Families with 1 item get 0.5 weight, others get 1.0 weight
+	const totalWeightedUnits = families.reduce((sum, family) => {
+		const count = familyCounts.get(family) || 0;
+		return sum + (count === 1 ? 0.5 : 1.0);
+	}, 0);
+
+	const unitWidth = width / totalWeightedUnits;
+	let currentX = 0;
+
+	return families.map((family) => {
+		const count = familyCounts.get(family) || 0;
+		const columnWidth = unitWidth * (count === 1 ? 0.5 : 1.0);
+		const centerX = currentX + columnWidth / 2;
+		currentX += columnWidth;
+
+		return {
+			family,
+			x: centerX,
+			width: columnWidth,
+			color: familyColors[family],
+		};
+	});
 }
 
 function distributeNodesInCell(
@@ -67,7 +89,8 @@ export function calculateGraphLayout(
 	const familyColumns = calculateFamilyColumns(
 		graphWidth,
 		familyOrder,
-		familyColors
+		familyColors,
+		aromachemicals
 	);
 
 	const nodesByCell = new Map<string, GraphNode[]>();

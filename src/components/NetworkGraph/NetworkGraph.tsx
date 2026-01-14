@@ -6,6 +6,7 @@ import { GraphData, GraphNode, LayoutDimensions } from '../../types';
 import { families } from '../../data/perfumery-constants';
 import { getEdgeStyle } from '../../utils/edgeCalculator';
 import './NetworkGraph.css';
+import { InfoCard } from './InfoCard';
 
 interface NetworkGraphProps {
 	graphData: GraphData;
@@ -103,7 +104,13 @@ export const NetworkGraph: React.FC<NetworkGraphProps> = ({
 								onWheel={(event) => {
 									event.preventDefault();
 									const point = { x: event.clientX, y: event.clientY };
-									zoom.scale({ scaleX: 1.1, scaleY: 1.1, point });
+									const delta = event.deltaY;
+									const scaleFactor = delta > 0 ? 0.9 : 1.1;
+									zoom.scale({
+										scaleX: scaleFactor,
+										scaleY: scaleFactor,
+										point,
+									});
 								}}
 							/>
 							<Group transform={zoom.toString()}>
@@ -165,23 +172,21 @@ export const NetworkGraph: React.FC<NetworkGraphProps> = ({
 													}
 												}}
 											/>
-											{isHovered && (
-												<text
-													x={node.x}
-													y={node.y - radius - 8}
-													textAnchor="middle"
-													className="node-label"
-													fill="#3A3A3A"
-													fontSize="12"
-													fontFamily="Inter, Helvetica Neue, sans-serif"
-													pointerEvents="none"
-												>
-													{node.name}: {node.description.split('.')[0] + '.'}
-												</text>
-											)}
 										</g>
 									);
 								})}
+								{hoveredNodeId !== null &&
+									(() => {
+										const hoveredNode = getNodeById(hoveredNodeId);
+										if (!hoveredNode) return null;
+										return (
+											<InfoCard
+												node={hoveredNode}
+												familyColor={families[hoveredNode.family]}
+												position={{ x: hoveredNode.x, y: hoveredNode.y }}
+											/>
+										);
+									})()}
 							</Group>
 						</svg>
 						<div className="network-graph__controls">
