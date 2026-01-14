@@ -69,33 +69,33 @@ export const aromachemicalImages: Record<number, string | null> = {
 	20: 'https://images.unsplash.com/photo-1542728929-2b5d9a0c8d48?w=800&q=80', // Galaxolide - clean sweet musk, subtle woody modern
 	21: 'https://images.unsplash.com/photo-1632052345135-40a3ebc227d8?w=800&q=80', // Geraniol - sweet fresh rose, fruity-citrus natural
 	22: 'https://images.unsplash.com/photo-1632052345135-40a3ebc227d8?w=800&q=80', // Geranyl Acetate - fresh fruity-rose, green lavender light
-	23: null, // Habanolide - elegant clean musk, pear woody sophisticated
-	24: null, // Hedione - transparent radiant jasmine, citrus fresh revolutionary
-	25: null, // Helional - fresh green-floral, aquatic melon clean
+	23: 'https://images.unsplash.com/photo-1696426505166-7ad5a71278b2?w=800&q=80', // Habanolide - elegant clean musk, pear woody sophisticated
+	24: 'https://images.unsplash.com/photo-1690024663188-cac70fc03230?w=800&q=80', // Hedione - transparent radiant jasmine, citrus fresh revolutionary
+	25: 'https://images.unsplash.com/photo-1638865553538-2434be4c62bd?w=800&q=80', // Helional - fresh green-floral, aquatic melon clean
 	26: null, // Hexenol-3-cis - intense fresh-cut grass, green leaves natural
 	27: 'https://images.unsplash.com/photo-1739664237734-e6e9b91bfd0d?w=800&q=80', // Hexenyl-3-cis Acetate - fresh green, fruity banana-pear softer
 	28: 'https://images.unsplash.com/photo-1605996370592-b6f7a81e382e?w=800&q=80', // Hexyl Salicylate - subtle orchid-like floral, green blending
-	29: null, // Linalool - fresh floral-woody, citrus-lavender essential
-	30: null, // Iso E Super - velvety cedarwood-amber, skin-like warmth diffusive
+	29: 'https://images.unsplash.com/photo-1515962603917-d83ca75e97d9?w=800&q=80', // Linalool - fresh floral-woody, citrus-lavender essential
+	30: 'https://images.unsplash.com/photo-1668045433608-d17890ae9a3c?w=800&q=80', // Iso E Super - velvety cedarwood-amber, skin-like warmth diffusive
 	31: null, // Indolene 50 - animalic-floral jasmine, depth sensuality
 	32: 'https://images.unsplash.com/photo-1589881132856-bd1a4af0ce4d?w=800&q=80', // Linalyl Acetate - fresh sweet lavender-bergamot, fruity clean
-	33: null, // Methyl Benzoate - fresh ylang-like floral, fruity feijoa light
-	34: null, // Methyl Diantilis - creamy carnation-like, green-spicy rich
+	33: 'https://images.unsplash.com/photo-1664807651767-a87958f49d6d?w=800&q=80', // Methyl Benzoate - fresh ylang-like floral, fruity feijoa light
+	34: 'https://images.unsplash.com/photo-1603005674947-d224daf7f2e8?w=800&q=80', // Methyl Diantilis - creamy carnation-like, green-spicy rich
 	35: 'https://images.unsplash.com/photo-1587890767851-e9bc526764b1?w=800&q=80', // Methyl Laitone - creamy coconut-lactonic, peach soft
 	36: 'https://images.unsplash.com/photo-1549492824-12c7cd53e0ca?w=800&q=80', // Orange Terpenes - bright fresh orange peel, sweet juicy natural
 	37: 'https://images.unsplash.com/photo-1647249239918-058feb10d233?w=800&q=80', // Oranger Crystals - sweet orange blossom, honey-like warm narcotic
-	38: null, // Para Cresyl Acetate - animalic narcissus-like, hay leather complex
-	39: null, // Peonile - soft rosy-peony, fresh green delicate
-	40: null, // Petitgrain EO - fresh green-citrus, woody-bitter orange leaf
+	38: 'https://images.unsplash.com/photo-1676749981331-54d487752324?w=800&q=80', // Para Cresyl Acetate - animalic narcissus-like, hay leather complex
+	39: 'https://images.unsplash.com/photo-1588935517849-e2769c288d57?w=800&q=80', // Peonile - soft rosy-peony, fresh green delicate
+	40: 'https://images.unsplash.com/photo-1671881202164-d784d336e582?w=800&q=80', // Petitgrain EO - fresh green-citrus, woody-bitter orange leaf
 	41: 'https://images.unsplash.com/photo-1632052345135-40a3ebc227d8?w=800&q=80', // Phenethyl Acetate - fresh rose-like, honey fruity sweet
 	42: 'https://images.unsplash.com/photo-1632052345135-40a3ebc227d8?w=800&q=80', // Phenethyl Alcohol - soft natural rose, green-honey heart
 	43: 'https://images.unsplash.com/photo-1632052345135-40a3ebc227d8?w=800&q=80', // PEPA Replacer - rose-honey, green tea modern building block
 	44: 'https://images.unsplash.com/photo-1709582611534-9fd3435d101e?w=800&q=80', // Rose Oxide - fresh metallic-green rose, lychee sparkling
 	45: 'https://images.unsplash.com/photo-1683008952458-dc02ac67f382?w=800&q=80', // Stemone - green watery stem-like, violet leaf natural ozonic
-	46: null, // Styrallyl Acetate - fresh green-gardenia, fruity-tropical light
-	47: null, // Tetrahydro Linalool - clean fresh-floral, subtle woody-citrus modern
-	48: null, // Toscanol - warm sandalwood-like, creamy milky soft enveloping
-	49: null, // Ultrazur - fresh ozonic, clean metallic modern aquatic
+	46: 'https://images.unsplash.com/photo-1646340925478-844ca7a38e9c?w=800&q=80', // Styrallyl Acetate - fresh green-gardenia, fruity-tropical light
+	47: 'https://images.unsplash.com/photo-1671881202164-d784d336e582?w=800&q=80', // Tetrahydro Linalool - clean fresh-floral, subtle woody-citrus modern
+	48: 'https://images.unsplash.com/photo-1506689205310-0a29c388691c?w=800&q=80', // Toscanol - warm sandalwood-like, creamy milky soft enveloping
+	49: 'https://images.unsplash.com/photo-1648829652210-027d1a23a167?w=800&q=80', // Ultrazur - fresh ozonic, clean metallic modern aquatic
 	50: 'https://images.unsplash.com/photo-1508910238952-0dfebf373ecf?w=800&q=80', // Undecavertol - fresh violet leaf, cucumber-green natural transparent
 	51: 'https://images.unsplash.com/photo-1610487512810-b614ad747572?w=800&q=80', // Vanillin - classic warm vanilla, sweet comforting benchmark
 	52: null, // Velvione - powerful clean musk, excellent longevity modern diffusive
