@@ -1,0 +1,123 @@
+.accords-panel {
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	background-color: #fafafa;
+	overflow: hidden;
+}
+
+.accords-panel__header {
+	padding: 32px 40px 24px;
+	background: white;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.accords-panel__title {
+	font-size: 32px;
+	font-weight: 600;
+	margin: 0 0 8px 0;
+	color: #000;
+}
+
+.accords-panel__subtitle {
+	font-size: 16px;
+	color: #666;
+	margin: 0;
+}
+
+.accords-panel__tabs {
+	display: flex;
+	gap: 4px;
+	padding: 0 40px;
+	background: white;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.accords-panel__tab {
+	padding: 12px 20px;
+	background: none;
+	border: none;
+	border-bottom: 2px solid transparent;
+	font-size: 14px;
+	font-weight: 500;
+	color: #666;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.accords-panel__tab:hover {
+	color: #333;
+	background-color: #f8f8f8;
+}
+
+.accords-panel__tab--active {
+	color: #000;
+	border-bottom-color: #000;
+}
+
+.accords-panel__tab--active:hover {
+	background-color: transparent;
+}
+
+.accords-panel__content {
+	flex: 1;
+	overflow-y: auto;
+	padding: 24px 40px;
+}
+
+.accords-panel__grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+	gap: 20px;
+}
+
+.accords-panel__empty {
+	grid-column: 1 / -1;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	padding: 60px 20px;
+	text-align: center;
+	color: #666;
+}
+
+.accords-panel__empty p {
+	font-size: 16px;
+	margin-bottom: 20px;
+}
+
+.accords-panel__create-button {
+	padding: 12px 24px;
+	background-color: #333;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: background-color 0.2s;
+}
+
+.accords-panel__create-button:hover {
+	background-color: #000;
+}
+
+@media (max-width: 1200px) {
+	.accords-panel__grid {
+		grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	}
+}
+
+@media (max-width: 768px) {
+	.accords-panel__grid {
+		grid-template-columns: 1fr;
+	}
+
+	.accords-panel__header,
+	.accords-panel__tabs,
+	.accords-panel__content {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}

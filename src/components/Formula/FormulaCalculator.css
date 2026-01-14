@@ -1,0 +1,171 @@
+.formula-calculator {
+	padding: 20px;
+	background: white;
+	border-radius: 8px;
+	border: 1px solid #e0e0e0;
+	margin-bottom: 24px;
+}
+
+.formula-calculator h3 {
+	font-size: 18px;
+	margin: 0 0 16px 0;
+	color: #000;
+}
+
+.formula-calculator h4 {
+	font-size: 14px;
+	font-weight: 600;
+	margin: 16px 0 12px 0;
+	color: #333;
+}
+
+.formula-calculator__summary {
+	display: flex;
+	gap: 32px;
+	margin-bottom: 24px;
+}
+
+.formula-calculator__stat {
+	display: flex;
+	flex-direction: column;
+	gap: 4px;
+}
+
+.formula-calculator__stat label {
+	font-size: 12px;
+	color: #666;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+}
+
+.formula-calculator__value {
+	font-size: 24px;
+	font-weight: 600;
+	color: #000;
+}
+
+.formula-calculator__note-distribution {
+	margin-bottom: 24px;
+	padding-bottom: 24px;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.formula-calculator__distribution-bars {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.formula-calculator__distribution-item {
+	display: grid;
+	grid-template-columns: 100px 1fr 60px;
+	align-items: center;
+	gap: 12px;
+}
+
+.formula-calculator__distribution-item label {
+	font-size: 13px;
+	color: #666;
+}
+
+.formula-calculator__bar-container {
+	height: 24px;
+	background: #f0f0f0;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+.formula-calculator__bar {
+	height: 100%;
+	transition: width 0.3s ease;
+	border-radius: 4px;
+}
+
+.formula-calculator__bar--top {
+	background: linear-gradient(90deg, #F5D68A, #F0C070);
+}
+
+.formula-calculator__bar--middle {
+	background: linear-gradient(90deg, #E8B5C5, #E090A8);
+}
+
+.formula-calculator__bar--base {
+	background: linear-gradient(90deg, #C4A570, #A88850);
+}
+
+.formula-calculator__distribution-item > span {
+	font-size: 13px;
+	font-weight: 600;
+	color: #333;
+	text-align: right;
+}
+
+.formula-calculator__percentages {
+	margin-bottom: 24px;
+	padding-bottom: 24px;
+	border-bottom: 1px solid #e8e8e8;
+}
+
+.formula-calculator__percentages-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.formula-calculator__percentage-item {
+	display: grid;
+	grid-template-columns: 1fr auto auto;
+	gap: 16px;
+	padding: 8px;
+	background: #fafafa;
+	border-radius: 4px;
+	font-size: 13px;
+}
+
+.formula-calculator__ingredient-name {
+	color: #333;
+	font-weight: 500;
+}
+
+.formula-calculator__ingredient-weight {
+	color: #666;
+}
+
+.formula-calculator__ingredient-percentage {
+	color: #000;
+	font-weight: 600;
+	text-align: right;
+	min-width: 50px;
+}
+
+.formula-calculator__warnings {
+	background: #fff3cd;
+	border: 1px solid #ffc107;
+	border-radius: 4px;
+	padding: 16px;
+}
+
+.formula-calculator__warnings h4 {
+	margin-top: 0;
+	color: #856404;
+}
+
+.formula-calculator__warnings-list {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+}
+
+.formula-calculator__warnings-list li {
+	font-size: 13px;
+	color: #856404;
+	padding: 8px;
+	background: white;
+	border-radius: 3px;
+}

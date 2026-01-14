@@ -1,0 +1,27 @@
+.accord-rating {
+	display: flex;
+	gap: 4px;
+}
+
+.accord-rating__star {
+	background: none;
+	border: none;
+	font-size: 20px;
+	color: #ddd;
+	cursor: pointer;
+	padding: 0;
+	transition: color 0.2s, transform 0.1s;
+}
+
+.accord-rating__star:not(:disabled):hover {
+	color: #ffc107;
+	transform: scale(1.1);
+}
+
+.accord-rating__star--filled {
+	color: #ffc107;
+}
+
+.accord-rating__star:disabled {
+	cursor: default;
+}

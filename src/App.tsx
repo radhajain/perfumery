@@ -3,6 +3,9 @@ import { Header } from './components/Header/Header';
 import { NetworkGraph } from './components/NetworkGraph/NetworkGraph';
 import { DetailPanel } from './components/DetailPanel/DetailPanel';
 import { Legend } from './components/common/Legend';
+import { TabNavigation, TabType } from './components/Layout/TabNavigation';
+import { AccordsPanel } from './components/Accords/AccordsPanel';
+import { FormulaBuilder } from './components/Formula/FormulaBuilder';
 import {
 	aromachemicals,
 	familyOrder,
@@ -19,6 +22,7 @@ import './styles/animations.css';
 import './App.css';
 
 function App() {
+	const [activeTab, setActiveTab] = useState<TabType>('graph');
 	const [selectedNodeId, setSelectedNodeId] = useState<number | null>(null);
 	const [searchInput, setSearchInput] = useState('');
 	const [hoveredNodeId, setHoveredNodeId] = useState<number | null>(null);
@@ -111,24 +115,31 @@ function App() {
 				aromachemicals={aromachemicals}
 				onSearchResultClick={handleSearchResultClick}
 			/>
+			<TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
 			<main className="main-content">
-				<NetworkGraph
-					graphData={graphData}
-					selectedNodeId={selectedNodeId}
-					hoveredNodeId={hoveredNodeId}
-					highlightedNodeIds={highlightedNodeIds}
-					onNodeClick={handleNodeClick}
-					onNodeHover={handleNodeHover}
-					dimensions={dimensions}
-				/>
-				<Legend families={families} familyOrder={familyOrder} />
-				{selectedAromachemical && (
-					<DetailPanel
-						aromachemical={selectedAromachemical}
-						onClose={handleClosePanel}
-						onPairingClick={handlePairingClick}
-					/>
+				{activeTab === 'graph' && (
+					<>
+						<NetworkGraph
+							graphData={graphData}
+							selectedNodeId={selectedNodeId}
+							hoveredNodeId={hoveredNodeId}
+							highlightedNodeIds={highlightedNodeIds}
+							onNodeClick={handleNodeClick}
+							onNodeHover={handleNodeHover}
+							dimensions={dimensions}
+						/>
+						<Legend families={families} familyOrder={familyOrder} />
+						{selectedAromachemical && (
+							<DetailPanel
+								aromachemical={selectedAromachemical}
+								onClose={handleClosePanel}
+								onPairingClick={handlePairingClick}
+							/>
+						)}
+					</>
 				)}
+				{activeTab === 'accords' && <AccordsPanel />}
+				{activeTab === 'formulas' && <FormulaBuilder />}
 			</main>
 		</div>
 	);

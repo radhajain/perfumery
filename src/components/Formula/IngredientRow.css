@@ -1,0 +1,107 @@
+.ingredient-row {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 12px;
+	background: white;
+	border-radius: 4px;
+	border: 1px solid #e0e0e0;
+}
+
+.ingredient-row__info {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	flex: 1;
+}
+
+.ingredient-row__badge {
+	padding: 6px 12px;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #333;
+}
+
+.ingredient-row__note {
+	font-size: 12px;
+	color: #666;
+	text-transform: capitalize;
+	padding: 4px 8px;
+	background: #f0f0f0;
+	border-radius: 3px;
+}
+
+.ingredient-row__controls {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+}
+
+.ingredient-row__weight {
+	display: flex;
+	align-items: center;
+	gap: 4px;
+}
+
+.ingredient-row__weight-input {
+	width: 80px;
+	padding: 8px;
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+	font-size: 14px;
+	text-align: right;
+}
+
+.ingredient-row__weight-input:focus {
+	outline: none;
+	border-color: #333;
+}
+
+.ingredient-row__unit {
+	font-size: 14px;
+	color: #666;
+	font-weight: 500;
+}
+
+.ingredient-row__dilution-input {
+	width: 100px;
+	padding: 8px;
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+	font-size: 13px;
+}
+
+.ingredient-row__dilution-input:focus {
+	outline: none;
+	border-color: #333;
+}
+
+.ingredient-row__remove-button {
+	width: 32px;
+	height: 32px;
+	background: #fee;
+	color: #c00;
+	border: none;
+	border-radius: 4px;
+	font-size: 24px;
+	line-height: 1;
+	cursor: pointer;
+	transition: all 0.2s;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.ingredient-row__remove-button:hover {
+	background: #fdd;
+}
+
+.ingredient-row__notes {
+	padding: 8px;
+	background: #fafafa;
+	border-radius: 3px;
+	font-size: 12px;
+	color: #666;
+	font-style: italic;
+}
