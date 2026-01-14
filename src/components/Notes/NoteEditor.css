@@ -1,0 +1,102 @@
+.note-editor {
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.note-editor__textarea {
+	width: 100%;
+	padding: 12px;
+	border: 1px solid #e0e0e0;
+	border-radius: 4px;
+	font-family: inherit;
+	font-size: 14px;
+	line-height: 1.5;
+	resize: vertical;
+	transition: border-color 0.2s;
+}
+
+.note-editor__textarea:focus {
+	outline: none;
+	border-color: #666;
+}
+
+.note-editor__actions {
+	display: flex;
+	gap: 8px;
+	justify-content: flex-end;
+}
+
+.note-editor__save-button,
+.note-editor__cancel-button,
+.note-editor__edit-button,
+.note-editor__add-button {
+	padding: 8px 16px;
+	border: none;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.note-editor__save-button {
+	background-color: #333;
+	color: white;
+}
+
+.note-editor__save-button:hover {
+	background-color: #000;
+}
+
+.note-editor__cancel-button {
+	background-color: #f0f0f0;
+	color: #333;
+}
+
+.note-editor__cancel-button:hover {
+	background-color: #e0e0e0;
+}
+
+.note-editor__add-button {
+	width: 100%;
+	background-color: #f8f8f8;
+	color: #666;
+	border: 1px dashed #ccc;
+	padding: 12px;
+}
+
+.note-editor__add-button:hover {
+	background-color: #f0f0f0;
+	border-color: #999;
+	color: #333;
+}
+
+.note-editor__display {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	padding: 12px;
+	background-color: #fafafa;
+	border-radius: 4px;
+	border: 1px solid #e8e8e8;
+}
+
+.note-editor__content {
+	font-size: 14px;
+	line-height: 1.6;
+	color: #333;
+	white-space: pre-wrap;
+}
+
+.note-editor__edit-button {
+	align-self: flex-end;
+	background-color: white;
+	color: #666;
+	border: 1px solid #e0e0e0;
+}
+
+.note-editor__edit-button:hover {
+	background-color: #f8f8f8;
+	color: #333;
+}

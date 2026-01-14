@@ -8,6 +8,7 @@ import {
 } from '../../data/image-library';
 import { ImagePlaceholder } from '../common/ImagePlaceholder';
 import { PairingChip } from '../common/PairingChip';
+import { NoteEditor } from '../Notes/NoteEditor';
 import './DetailPanel.css';
 
 interface DetailPanelProps {
@@ -71,6 +72,11 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({
 				<div className="detail-panel__section">
 					<h3 className="detail-panel__section-title">Description</h3>
 					<p>{aromachemical.description}</p>
+				</div>
+
+				<div className="detail-panel__section">
+					<h3 className="detail-panel__section-title">My Notes</h3>
+					<NoteEditor aromachemicalId={aromachemical.id} />
 				</div>
 
 				<div className="detail-panel__section">
