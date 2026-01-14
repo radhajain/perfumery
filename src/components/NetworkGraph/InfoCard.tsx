@@ -1,9 +1,7 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { GraphNode } from '../../types';
-import {
-	aromachemicalImages,
-	familyImages,
-} from '../../data/image-library';
+import { aromachemicals } from '../../data/perfumery-constants';
+import { InfoCardContent } from '../common/InfoCardContent';
 import './InfoCard.css';
 
 interface InfoCardProps {
@@ -17,44 +15,58 @@ export const InfoCard: React.FC<InfoCardProps> = ({
 	familyColor,
 	position,
 }) => {
-	const imageUrl =
-		node.data.imageUrl ||
-		aromachemicalImages[node.id] ||
-		familyImages[node.family];
+	const aromachemical = aromachemicals.find((a) => a.id === node.id)!;
+
+	const cardRef = useRef<HTMLDivElement>(null);
+	const [adjustedPosition, setAdjustedPosition] = useState({
+		x: position.x - 150,
+		y: position.y - 160,
+	});
+	const [dimensions, setDimensions] = useState({ width: 300, height: 150 });
+
+	useEffect(() => {
+		if (cardRef.current) {
+			const card = cardRef.current;
+			const rect = card.getBoundingClientRect();
+			const viewportWidth = window.innerWidth;
+
+			const cardWidth = 300;
+			const cardHeight = rect.height;
+			let newX = position.x - cardWidth / 2;
+			let newY = position.y - cardHeight - 12;
+
+			// Check horizontal bounds
+			if (newX < 10) {
+				// Too far left, align to left edge with padding
+				newX = 10;
+			} else if (newX + cardWidth > viewportWidth - 10) {
+				// Too far right, align to right edge with padding
+				newX = viewportWidth - cardWidth - 10;
+			}
+
+			// Check vertical bounds
+			// Account for tab navigation at top (approximately 60px)
+			const topPadding = 70;
+			if (newY < topPadding) {
+				// Not enough space above, position below instead
+				newY = position.y + 40;
+			}
+
+			setAdjustedPosition({ x: newX, y: newY });
+			setDimensions({ width: cardWidth, height: cardHeight });
+		}
+	}, [position]);
 
 	return (
 		<foreignObject
-			x={position.x - 150}
-			y={position.y - 160}
-			width={300}
-			height={150}
+			x={adjustedPosition.x}
+			y={adjustedPosition.y}
+			width={dimensions.width}
+			height={dimensions.height}
 			pointerEvents="none"
 		>
-			<div className="info-card">
-				<div
-					className="info-card__color-bar"
-					style={{ backgroundColor: familyColor }}
-				/>
-				<div className="info-card__content">
-					<div className="info-card__main">
-						<div className="info-card__text">
-							<h3 className="info-card__title">{node.name}</h3>
-							<p className="info-card__family">{node.family}</p>
-							<p className="info-card__description">
-								{node.description.split('.')[0]}.
-							</p>
-						</div>
-						{imageUrl && (
-							<div className="info-card__thumbnail">
-								<img
-									src={imageUrl}
-									alt={node.name}
-									className="info-card__image"
-								/>
-							</div>
-						)}
-					</div>
-				</div>
+			<div ref={cardRef}>
+				<InfoCardContent aromachemical={aromachemical} className="info-card" />
 			</div>
 		</foreignObject>
 	);

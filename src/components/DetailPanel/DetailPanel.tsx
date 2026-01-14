@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useMemo } from 'react';
 import { Aromachemical } from '../../types';
 import { aromachemicals, families } from '../../data/perfumery-constants';
 import {
@@ -9,6 +9,9 @@ import {
 import { ImagePlaceholder } from '../common/ImagePlaceholder';
 import { PairingChip } from '../common/PairingChip';
 import { NoteEditor } from '../Notes/NoteEditor';
+import { AccordInfoCard } from '../common/AccordInfoCard';
+import { useUserData } from '../../contexts/UserDataContext';
+import { POPULAR_ACCORDS } from '../../data/popular-accords';
 import './DetailPanel.css';
 
 interface DetailPanelProps {
@@ -22,6 +25,22 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({
 	onClose,
 	onPairingClick,
 }) => {
+	const { customAccords } = useUserData();
+	const [hoveredAccord, setHoveredAccord] = useState<{
+		accordId: string;
+		position: { x: number; y: number };
+	} | null>(null);
+
+	const accordsUsingThis = useMemo(() => {
+		if (!aromachemical) return [];
+		const allAccords = [...POPULAR_ACCORDS, ...customAccords];
+		return allAccords.filter((accord) =>
+			accord.aromachemicals.some(
+				(ing) => ing.aromachemicalId === aromachemical.id
+			)
+		);
+	}, [aromachemical, customAccords]);
+
 	if (!aromachemical) return null;
 
 	const getPairingById = (id: number) => {
@@ -99,6 +118,47 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({
 					</div>
 				</div>
 
+				{accordsUsingThis.length > 0 && (
+					<div className="detail-panel__section">
+						<h3 className="detail-panel__section-title">
+							Used in Accords ({accordsUsingThis.length})
+						</h3>
+						<div className="detail-panel__accords">
+							{accordsUsingThis.map((accord) => {
+								const percentage = accord.aromachemicals.find(
+									(ing) => ing.aromachemicalId === aromachemical.id
+								)?.percentage;
+								return (
+									<div
+										key={accord.id}
+										className="detail-panel__accord-chip"
+										onMouseEnter={(e) => {
+											const rect = e.currentTarget.getBoundingClientRect();
+											setHoveredAccord({
+												accordId: accord.id,
+												position: {
+													x: rect.left + rect.width / 2,
+													y: rect.top,
+												},
+											});
+										}}
+										onMouseLeave={() => setHoveredAccord(null)}
+									>
+										<span className="detail-panel__accord-name">
+											{accord.name}
+										</span>
+										{percentage && (
+											<span className="detail-panel__accord-percentage">
+												{percentage}%
+											</span>
+										)}
+									</div>
+								);
+							})}
+						</div>
+					</div>
+				)}
+
 				<div className="detail-panel__section">
 					<h3 className="detail-panel__section-title">Famous Perfumes</h3>
 					<ul className="detail-panel__perfume-list">
@@ -152,6 +212,13 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({
 					<p>{aromachemical.ifraLimit}</p>
 				</div>
 			</div>
+
+			{hoveredAccord && (
+				<AccordInfoCard
+					accord={accordsUsingThis.find((a) => a.id === hoveredAccord.accordId)!}
+					position={hoveredAccord.position}
+				/>
+			)}
 		</div>
 	);
 };

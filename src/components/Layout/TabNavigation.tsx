@@ -17,7 +17,7 @@ export function TabNavigation({ activeTab, onTabChange }: TabNavigationProps) {
 				}`}
 				onClick={() => onTabChange('graph')}
 			>
-				Graph
+				Aromachemicals
 			</button>
 			<button
 				className={`tab-navigation__tab ${

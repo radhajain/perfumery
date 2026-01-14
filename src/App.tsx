@@ -107,6 +107,11 @@ function App() {
 		setSelectedNodeId(id);
 	}, []);
 
+	const handleAromachemicalClick = useCallback((id: number) => {
+		setSelectedNodeId(id);
+		setActiveTab('graph');
+	}, []);
+
 	return (
 		<div className="app">
 			<Header
@@ -138,8 +143,8 @@ function App() {
 						)}
 					</>
 				)}
-				{activeTab === 'accords' && <AccordsPanel />}
-				{activeTab === 'formulas' && <FormulaBuilder />}
+				{activeTab === 'accords' && <AccordsPanel onAromachemicalClick={handleAromachemicalClick} />}
+				{activeTab === 'formulas' && <FormulaBuilder onAromachemicalClick={handleAromachemicalClick} />}
 			</main>
 		</div>
 	);

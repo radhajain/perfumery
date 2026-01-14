@@ -1,0 +1,274 @@
+.accord-creator-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.5);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 2000;
+	padding: 20px;
+}
+
+.accord-creator {
+	background: white;
+	border-radius: 12px;
+	max-width: 600px;
+	width: 100%;
+	max-height: 90vh;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.accord-creator__header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 20px 24px;
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.accord-creator__title {
+	margin: 0;
+	font-size: 20px;
+	font-weight: 600;
+	color: #333;
+}
+
+.accord-creator__close {
+	background: none;
+	border: none;
+	font-size: 28px;
+	cursor: pointer;
+	color: #666;
+	padding: 0;
+	width: 32px;
+	height: 32px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	transition: background 0.2s;
+}
+
+.accord-creator__close:hover {
+	background: #f0f0f0;
+}
+
+.accord-creator__content {
+	padding: 24px;
+	overflow-y: auto;
+	flex: 1;
+}
+
+.accord-creator__field {
+	margin-bottom: 20px;
+}
+
+.accord-creator__label {
+	display: block;
+	margin-bottom: 8px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #555;
+}
+
+.accord-creator__input,
+.accord-creator__textarea,
+.accord-creator__select {
+	width: 100%;
+	padding: 10px 12px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	font-size: 14px;
+	font-family: inherit;
+	transition: border-color 0.2s;
+}
+
+.accord-creator__input:focus,
+.accord-creator__textarea:focus,
+.accord-creator__select:focus {
+	outline: none;
+	border-color: #8B7355;
+}
+
+.accord-creator__textarea {
+	resize: vertical;
+	min-height: 80px;
+}
+
+.accord-creator__section {
+	margin-top: 24px;
+	padding-top: 24px;
+	border-top: 1px solid #e0e0e0;
+}
+
+.accord-creator__section-title {
+	margin: 0 0 16px 0;
+	font-size: 16px;
+	font-weight: 600;
+	color: #333;
+}
+
+.accord-creator__add-ingredient {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 16px;
+}
+
+.accord-creator__select {
+	flex: 1;
+	min-width: 0;
+}
+
+.accord-creator__percentage-input {
+	width: 80px;
+	padding: 10px 12px;
+	border: 1px solid #ddd;
+	border-radius: 6px;
+	font-size: 14px;
+}
+
+.accord-creator__percentage-input:focus {
+	outline: none;
+	border-color: #8B7355;
+}
+
+.accord-creator__add-button {
+	padding: 10px 20px;
+	background: #8B7355;
+	color: white;
+	border: none;
+	border-radius: 6px;
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: background 0.2s;
+	white-space: nowrap;
+}
+
+.accord-creator__add-button:hover:not(:disabled) {
+	background: #6F5B43;
+}
+
+.accord-creator__add-button:disabled {
+	background: #ccc;
+	cursor: not-allowed;
+}
+
+.accord-creator__ingredients-list {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	margin-bottom: 16px;
+}
+
+.accord-creator__ingredient {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 8px 12px;
+	background: #f9f9f9;
+	border-radius: 6px;
+}
+
+.accord-creator__ingredient-badge {
+	padding: 6px 12px;
+	border-radius: 4px;
+	font-size: 14px;
+	font-weight: 500;
+	color: #333;
+	flex: 1;
+}
+
+.accord-creator__ingredient-percentage {
+	font-size: 14px;
+	font-weight: 600;
+	color: #555;
+	min-width: 50px;
+	text-align: right;
+}
+
+.accord-creator__remove-button {
+	background: none;
+	border: none;
+	font-size: 20px;
+	color: #999;
+	cursor: pointer;
+	padding: 0;
+	width: 24px;
+	height: 24px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	transition: all 0.2s;
+}
+
+.accord-creator__remove-button:hover {
+	background: #e0e0e0;
+	color: #333;
+}
+
+.accord-creator__total {
+	font-size: 14px;
+	font-weight: 500;
+	color: #555;
+	text-align: right;
+}
+
+.accord-creator__total--valid {
+	color: #4CAF50;
+	font-weight: 600;
+}
+
+.accord-creator__total--invalid {
+	color: #f44336;
+	font-weight: 600;
+}
+
+.accord-creator__actions {
+	display: flex;
+	gap: 12px;
+	padding: 16px 24px;
+	border-top: 1px solid #e0e0e0;
+	justify-content: flex-end;
+}
+
+.accord-creator__cancel,
+.accord-creator__save {
+	padding: 10px 24px;
+	border: none;
+	border-radius: 6px;
+	font-size: 14px;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.accord-creator__cancel {
+	background: #f5f5f5;
+	color: #555;
+}
+
+.accord-creator__cancel:hover {
+	background: #e0e0e0;
+}
+
+.accord-creator__save {
+	background: #8B7355;
+	color: white;
+}
+
+.accord-creator__save:hover:not(:disabled) {
+	background: #6F5B43;
+}
+
+.accord-creator__save:disabled {
+	background: #ccc;
+	cursor: not-allowed;
+	opacity: 0.6;
+}

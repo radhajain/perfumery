@@ -1,0 +1,90 @@
+.info-card-popover {
+	width: 300px;
+	max-width: calc(100vw - 20px);
+	background: white;
+	border-radius: 8px;
+	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+	overflow: visible;
+	z-index: 1000;
+	pointer-events: none;
+	transform: translate(-50%, -100%) translateY(-12px);
+}
+
+.info-card-popover__color-bar {
+	height: 4px;
+	width: 100%;
+	border-radius: 8px 8px 0 0;
+}
+
+.info-card-popover__content {
+	padding: 16px;
+	max-height: 400px;
+	overflow-y: auto;
+}
+
+.info-card-popover__main {
+	display: flex;
+	gap: 12px;
+	align-items: flex-start;
+}
+
+.info-card-popover__text {
+	flex: 1;
+	min-width: 0;
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+}
+
+.info-card-popover__title {
+	margin: 0 0 4px 0;
+	font-size: 16px;
+	font-weight: 600;
+	color: #000;
+	word-wrap: break-word;
+}
+
+.info-card-popover__tags {
+	display: flex;
+	gap: 6px;
+	margin-bottom: 8px;
+	flex-wrap: wrap;
+}
+
+.info-card-popover__tag {
+	padding: 3px 8px;
+	border-radius: 3px;
+	font-size: 10px;
+	font-weight: 500;
+	color: #333;
+	text-transform: capitalize;
+}
+
+.info-card-popover__tag--note {
+	background: #f0f0f0;
+	color: #666;
+}
+
+.info-card-popover__description {
+	margin: 0;
+	font-size: 13px;
+	line-height: 1.5;
+	color: #555;
+	white-space: normal;
+	word-wrap: break-word;
+	overflow-wrap: break-word;
+}
+
+.info-card-popover__thumbnail {
+	width: 60px;
+	height: 60px;
+	flex-shrink: 0;
+	border-radius: 4px;
+	overflow: hidden;
+	background: #f0f0f0;
+}
+
+.info-card-popover__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}

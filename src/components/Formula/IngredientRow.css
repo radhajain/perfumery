@@ -23,6 +23,17 @@
 	color: #333;
 }
 
+.ingredient-row__badge--clickable {
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.ingredient-row__badge--clickable:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+	filter: brightness(0.95);
+}
+
 .ingredient-row__note {
 	font-size: 12px;
 	color: #666;

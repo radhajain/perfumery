@@ -3,20 +3,31 @@ import { Accord } from '../../types/userdata';
 import { aromachemicals, families } from '../../data/perfumery-constants';
 import { AccordRating } from './AccordRating';
 import { useUserData } from '../../contexts/UserDataContext';
+import { InfoCardPopover } from '../common/InfoCardPopover';
 import './AccordCard.css';
 
 interface AccordCardProps {
 	accord: Accord;
 	onEdit?: () => void;
 	onDelete?: () => void;
+	onAromachemicalClick?: (id: number) => void;
 }
 
-export function AccordCard({ accord, onEdit, onDelete }: AccordCardProps) {
+export function AccordCard({
+	accord,
+	onEdit,
+	onDelete,
+	onAromachemicalClick,
+}: AccordCardProps) {
 	const { rateAccord, getAccordRating } = useUserData();
 	const [showNotes, setShowNotes] = useState(false);
 	const [userNotes, setUserNotes] = useState(
 		getAccordRating(accord.id)?.notes || ''
 	);
+	const [hoveredAromachemical, setHoveredAromachemical] = useState<{
+		id: number;
+		position: { x: number; y: number };
+	} | null>(null);
 
 	const userRating = getAccordRating(accord.id);
 
@@ -39,10 +50,7 @@ export function AccordCard({ accord, onEdit, onDelete }: AccordCardProps) {
 					)}
 				</div>
 				{accord.isPreDefined && (
-					<AccordRating
-						rating={userRating?.rating}
-						onRate={handleRate}
-					/>
+					<AccordRating rating={userRating?.rating} onRate={handleRate} />
 				)}
 			</div>
 
@@ -51,38 +59,58 @@ export function AccordCard({ accord, onEdit, onDelete }: AccordCardProps) {
 			<div className="accord-card__ingredients">
 				<h4 className="accord-card__ingredients-title">Ingredients:</h4>
 				<ul className="accord-card__ingredients-list">
-					{accord.aromachemicals.map((ingredient) => {
-						const aroma = aromachemicals.find(
-							(a) => a.id === ingredient.aromachemicalId
-						);
-						if (!aroma) return null;
+					{[...accord.aromachemicals]
+						.sort((a, b) => b.percentage - a.percentage)
+						.map((ingredient) => {
+							const aroma = aromachemicals.find(
+								(a) => a.id === ingredient.aromachemicalId
+							);
+							if (!aroma) return null;
 
-						return (
-							<li
-								key={ingredient.aromachemicalId}
-								className="accord-card__ingredient"
-							>
-								<span
-									className="accord-card__ingredient-badge"
-									style={{
-										backgroundColor: families[aroma.family],
-									}}
+							return (
+								<li
+									key={ingredient.aromachemicalId}
+									className="accord-card__ingredient"
 								>
-									{aroma.name}
-								</span>
-								{ingredient.percentage && (
-									<span className="accord-card__ingredient-percentage">
-										{ingredient.percentage}%
+									<span
+										className={`accord-card__ingredient-badge ${
+											onAromachemicalClick
+												? 'accord-card__ingredient-badge--clickable'
+												: ''
+										}`}
+										style={{
+											backgroundColor: families[aroma.family],
+										}}
+										onClick={() =>
+											onAromachemicalClick?.(ingredient.aromachemicalId)
+										}
+										onMouseEnter={(e) => {
+											const rect = e.currentTarget.getBoundingClientRect();
+											setHoveredAromachemical({
+												id: ingredient.aromachemicalId,
+												position: {
+													x: rect.left + rect.width / 2,
+													y: rect.top,
+												},
+											});
+										}}
+										onMouseLeave={() => setHoveredAromachemical(null)}
+									>
+										{aroma.name}
 									</span>
-								)}
-								{ingredient.notes && (
-									<span className="accord-card__ingredient-notes">
-										{ingredient.notes}
-									</span>
-								)}
-							</li>
-						);
-					})}
+									{ingredient.percentage && (
+										<span className="accord-card__ingredient-percentage">
+											{ingredient.percentage}%
+										</span>
+									)}
+									{ingredient.notes && (
+										<span className="accord-card__ingredient-notes">
+											{ingredient.notes}
+										</span>
+									)}
+								</li>
+							);
+						})}
 				</ul>
 			</div>
 
@@ -143,6 +171,15 @@ export function AccordCard({ accord, onEdit, onDelete }: AccordCardProps) {
 						</button>
 					)}
 				</div>
+			)}
+
+			{hoveredAromachemical && (
+				<InfoCardPopover
+					aromachemical={
+						aromachemicals.find((a) => a.id === hoveredAromachemical.id)!
+					}
+					position={hoveredAromachemical.position}
+				/>
 			)}
 		</div>
 	);

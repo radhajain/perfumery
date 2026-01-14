@@ -25,13 +25,13 @@ export const POPULAR_ACCORDS: Accord[] = [
 		id: 'chypre-classic',
 		name: 'Chypre',
 		description:
-			'Named after Coty\'s Chypre (1917), this family balances fresh citrus bergamot with warm labdanum and oakmoss. Modern versions use synthetic oakmoss alternatives due to IFRA restrictions.',
+			"Named after Coty's Chypre (1917), this family balances fresh citrus bergamot with warm labdanum and oakmoss. Modern versions use synthetic oakmoss alternatives due to IFRA restrictions.",
 		category: 'classic',
 		isPreDefined: true,
 		aromachemicals: [
+			{ aromachemicalId: 13, percentage: 30, notes: 'Sandalwood warmth' }, // Ebanol
 			{ aromachemicalId: 32, percentage: 25, notes: 'Bergamot sparkle' }, // Linalyl Acetate
 			{ aromachemicalId: 42, percentage: 20, notes: 'Rose heart' }, // Phenethyl Alcohol
-			{ aromachemicalId: 13, percentage: 30, notes: 'Sandalwood warmth' }, // Ebanol
 			{ aromachemicalId: 38, percentage: 15, notes: 'Oakmoss effect' }, // Para Cresyl Acetate
 			{ aromachemicalId: 7, percentage: 10, notes: 'Fresh green facet' }, // Citronellol
 		],
@@ -42,7 +42,7 @@ export const POPULAR_ACCORDS: Accord[] = [
 		id: 'oriental-amber',
 		name: 'Oriental Amber',
 		description:
-			'The warm, spicy, and sweet accord that defines the Oriental family. Popularized by Guerlain\'s Shalimar (1925). Combines vanilla, resinous warmth, and exotic spices.',
+			"The warm, spicy, and sweet accord that defines the Oriental family. Popularized by Guerlain's Shalimar (1925). Combines vanilla, resinous warmth, and exotic spices.",
 		category: 'classic',
 		isPreDefined: true,
 		aromachemicals: [
@@ -63,11 +63,11 @@ export const POPULAR_ACCORDS: Accord[] = [
 		category: 'modern',
 		isPreDefined: true,
 		aromachemicals: [
-			{ aromachemicalId: 5, percentage: 15, notes: 'Ocean watermelon' }, // Calone
 			{ aromachemicalId: 10, percentage: 30, notes: 'Clean lime freshness' }, // Dihydro Myrcenol
 			{ aromachemicalId: 49, percentage: 20, notes: 'Mineral water' }, // Ultrazur
-			{ aromachemicalId: 12, percentage: 15, notes: 'Violet leaf green' }, // Dimethyl Octenone
 			{ aromachemicalId: 2, percentage: 20, notes: 'Dry salty base' }, // Ambroxan
+			{ aromachemicalId: 5, percentage: 15, notes: 'Ocean watermelon' }, // Calone
+			{ aromachemicalId: 12, percentage: 15, notes: 'Violet leaf green' }, // Dimethyl Octenone
 		],
 		createdAt: '2024-01-01T00:00:00.000Z',
 		updatedAt: '2024-01-01T00:00:00.000Z',
@@ -110,12 +110,12 @@ export const POPULAR_ACCORDS: Accord[] = [
 		id: 'gourmand-praline',
 		name: 'Gourmand Praline',
 		description:
-			'The sweet, edible accord that defined modern feminine fragrances after Thierry Mugler\'s Angel (1992). Combines caramel, vanilla, and cotton candy sweetness.',
+			"The sweet, edible accord that defined modern feminine fragrances after Thierry Mugler's Angel (1992). Combines caramel, vanilla, and cotton candy sweetness.",
 		category: 'modern',
 		isPreDefined: true,
 		aromachemicals: [
-			{ aromachemicalId: 15, percentage: 25, notes: 'Cotton candy sugar' }, // Ethyl Maltol
 			{ aromachemicalId: 51, percentage: 30, notes: 'Vanilla warmth' }, // Vanillin
+			{ aromachemicalId: 15, percentage: 25, notes: 'Cotton candy sugar' }, // Ethyl Maltol
 			{ aromachemicalId: 16, percentage: 20, notes: 'Deep vanilla richness' }, // Ethyl Vanillin
 			{ aromachemicalId: 2, percentage: 15, notes: 'Salty contrast' }, // Ambroxan
 			{ aromachemicalId: 35, percentage: 10, notes: 'Coconut creaminess' }, // Methyl Laitone

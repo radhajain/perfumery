@@ -76,6 +76,17 @@
 	color: #333;
 }
 
+.accord-card__ingredient-badge--clickable {
+	cursor: pointer;
+	transition: all 0.2s;
+}
+
+.accord-card__ingredient-badge--clickable:hover {
+	transform: translateY(-1px);
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+	filter: brightness(0.95);
+}
+
 .accord-card__ingredient-percentage {
 	font-weight: 600;
 	color: #666;

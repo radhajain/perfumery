@@ -6,57 +6,59 @@
 	overflow: hidden;
 }
 
-.accords-panel__header {
-	padding: 32px 40px 24px;
-	background: white;
-	border-bottom: 1px solid #e0e0e0;
-}
-
-.accords-panel__title {
-	font-size: 32px;
-	font-weight: 600;
-	margin: 0 0 8px 0;
-	color: #000;
-}
-
-.accords-panel__subtitle {
-	font-size: 16px;
-	color: #666;
-	margin: 0;
-}
-
-.accords-panel__tabs {
+.accords-panel__filters {
 	display: flex;
-	gap: 4px;
-	padding: 0 40px;
+	gap: 8px;
+	padding: 16px 40px;
 	background: white;
 	border-bottom: 1px solid #e0e0e0;
+	justify-content: end;
 }
 
-.accords-panel__tab {
-	padding: 12px 20px;
-	background: none;
-	border: none;
-	border-bottom: 2px solid transparent;
-	font-size: 14px;
+.accords-panel__filter-pill {
+	padding: 8px 16px;
+	background: #f0f0f0;
+	border: 1px solid #e0e0e0;
+	border-radius: 20px;
+	font-size: 13px;
 	font-weight: 500;
 	color: #666;
 	cursor: pointer;
 	transition: all 0.2s;
 }
 
-.accords-panel__tab:hover {
+.accords-panel__filter-pill:hover {
+	background: #e8e8e8;
 	color: #333;
-	background-color: #f8f8f8;
 }
 
-.accords-panel__tab--active {
-	color: #000;
-	border-bottom-color: #000;
+.accords-panel__filter-pill--active {
+	background: #333;
+	color: white;
+	border-color: #333;
 }
 
-.accords-panel__tab--active:hover {
-	background-color: transparent;
+.accords-panel__filter-pill--active:hover {
+	background: #000;
+	border-color: #000;
+}
+
+.accords-panel__create-pill {
+	padding: 8px 16px;
+	background: #8B7355;
+	border: 1px solid #8B7355;
+	border-radius: 20px;
+	font-size: 13px;
+	font-weight: 500;
+	color: white;
+	cursor: pointer;
+	transition: all 0.2s;
+	margin-left: 8px;
+}
+
+.accords-panel__create-pill:hover {
+	background: #6F5B43;
+	border-color: #6F5B43;
 }
 
 .accords-panel__content {

@@ -15,12 +15,12 @@ export interface UserNotes {
 // Accords System
 export interface AccordIngredient {
 	aromachemicalId: number;
-	percentage?: number; // Optional percentage in accord
+	percentage: number;
 	notes?: string; // User notes specific to this ingredient in this accord
 }
 
 export interface Accord {
-	id: string; // UUID
+	id: string;
 	name: string;
 	description: string;
 	aromachemicals: AccordIngredient[];

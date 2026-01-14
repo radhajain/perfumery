@@ -1,19 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FormulaIngredient } from '../../types/userdata';
 import { aromachemicals, families } from '../../data/perfumery-constants';
+import { InfoCardPopover } from '../common/InfoCardPopover';
 import './IngredientRow.css';
 
 interface IngredientRowProps {
 	ingredient: FormulaIngredient;
 	onUpdate: (updates: Partial<FormulaIngredient>) => void;
 	onRemove: () => void;
+	onAromachemicalClick?: (id: number) => void;
 }
 
 export function IngredientRow({
 	ingredient,
 	onUpdate,
 	onRemove,
+	onAromachemicalClick,
 }: IngredientRowProps) {
+	const [hoveredAromachemical, setHoveredAromachemical] = useState<{
+		id: number;
+		position: { x: number; y: number };
+	} | null>(null);
+
 	const aroma = aromachemicals.find(
 		(a) => a.id === ingredient.aromachemicalId
 	);
@@ -24,10 +32,24 @@ export function IngredientRow({
 		<div className="ingredient-row">
 			<div className="ingredient-row__info">
 				<span
-					className="ingredient-row__badge"
+					className={`ingredient-row__badge ${
+						onAromachemicalClick ? 'ingredient-row__badge--clickable' : ''
+					}`}
 					style={{
 						backgroundColor: families[aroma.family],
 					}}
+					onClick={() => onAromachemicalClick?.(ingredient.aromachemicalId)}
+					onMouseEnter={(e) => {
+						const rect = e.currentTarget.getBoundingClientRect();
+						setHoveredAromachemical({
+							id: ingredient.aromachemicalId,
+							position: {
+								x: rect.left + rect.width / 2,
+								y: rect.top,
+							},
+						});
+					}}
+					onMouseLeave={() => setHoveredAromachemical(null)}
 				>
 					{aroma.name}
 				</span>
@@ -75,6 +97,15 @@ export function IngredientRow({
 
 			{ingredient.notes && (
 				<div className="ingredient-row__notes">{ingredient.notes}</div>
+			)}
+
+			{hoveredAromachemical && (
+				<InfoCardPopover
+					aromachemical={
+						aromachemicals.find((a) => a.id === hoveredAromachemical.id)!
+					}
+					position={hoveredAromachemical.position}
+				/>
 			)}
 		</div>
 	);
