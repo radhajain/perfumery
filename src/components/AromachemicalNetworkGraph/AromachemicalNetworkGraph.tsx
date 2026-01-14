@@ -5,8 +5,8 @@ import { Zoom } from '@visx/zoom';
 import { GraphData, GraphNode, LayoutDimensions } from '../../types';
 import { families } from '../../data/perfumery-constants';
 import { getEdgeStyle } from '../../utils/edgeCalculator';
-import './NetworkGraph.css';
-import { InfoCard } from './InfoCard';
+import './AromachemicalNetworkGraph.css';
+import { AromachemicalInfoCard } from './AromachemicalInfoCard';
 
 interface NetworkGraphProps {
 	graphData: GraphData;
@@ -180,9 +180,8 @@ export const NetworkGraph: React.FC<NetworkGraphProps> = ({
 										const hoveredNode = getNodeById(hoveredNodeId);
 										if (!hoveredNode) return null;
 										return (
-											<InfoCard
+											<AromachemicalInfoCard
 												node={hoveredNode}
-												familyColor={families[hoveredNode.family]}
 												position={{ x: hoveredNode.x, y: hoveredNode.y }}
 											/>
 										);

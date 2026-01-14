@@ -1,18 +1,16 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { GraphNode } from '../../types';
 import { aromachemicals } from '../../data/perfumery-constants';
-import { InfoCardContent } from '../common/InfoCardContent';
-import './InfoCard.css';
+import { AromachemicalInfoCardContent } from '../common/AromachemicalInfoCardContent';
+import './AromachemicalInfoCard.css';
 
-interface InfoCardProps {
+interface AromachemicalInfoCardProps {
 	node: GraphNode;
-	familyColor: string;
 	position: { x: number; y: number };
 }
 
-export const InfoCard: React.FC<InfoCardProps> = ({
+export const AromachemicalInfoCard: React.FC<AromachemicalInfoCardProps> = ({
 	node,
-	familyColor,
 	position,
 }) => {
 	const aromachemical = aromachemicals.find((a) => a.id === node.id)!;
@@ -66,7 +64,10 @@ export const InfoCard: React.FC<InfoCardProps> = ({
 			pointerEvents="none"
 		>
 			<div ref={cardRef}>
-				<InfoCardContent aromachemical={aromachemical} className="info-card" />
+				<AromachemicalInfoCardContent
+					aromachemical={aromachemical}
+					className="info-card"
+				/>
 			</div>
 		</foreignObject>
 	);

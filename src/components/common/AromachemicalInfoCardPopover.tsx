@@ -1,18 +1,17 @@
 import React, { useRef } from 'react';
 import { Aromachemical } from '../../types';
-import { InfoCardContent } from './InfoCardContent';
+import { AromachemicalInfoCardContent } from './AromachemicalInfoCardContent';
 import { usePopoverPosition } from '../../hooks/usePopoverPosition';
-import './InfoCardPopover.css';
+import './AromachemicalInfoCardPopover.css';
 
-interface InfoCardPopoverProps {
+interface AromachemicalInfoCardPopoverProps {
 	aromachemical: Aromachemical;
 	position: { x: number; y: number };
 }
 
-export const InfoCardPopover: React.FC<InfoCardPopoverProps> = ({
-	aromachemical,
-	position,
-}) => {
+export const AromachemicalInfoCardPopover: React.FC<
+	AromachemicalInfoCardPopoverProps
+> = ({ aromachemical, position }) => {
 	const cardRef = useRef<HTMLDivElement>(null);
 	const adjustedPosition = usePopoverPosition(position, cardRef);
 
@@ -25,7 +24,7 @@ export const InfoCardPopover: React.FC<InfoCardPopoverProps> = ({
 				top: `${adjustedPosition.y}px`,
 			}}
 		>
-			<InfoCardContent
+			<AromachemicalInfoCardContent
 				aromachemical={aromachemical}
 				className="info-card-popover"
 			/>

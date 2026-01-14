@@ -4,7 +4,7 @@ import { aromachemicals, families } from '../../data/perfumery-constants';
 import { AccordRating } from './AccordRating';
 import { useUserData } from '../../contexts/UserDataContext';
 import { useNavigation } from '../../hooks/useNavigation';
-import { InfoCardPopover } from '../common/InfoCardPopover';
+import { AromachemicalInfoCardPopover } from '../common/AromachemicalInfoCardPopover';
 import {
 	getAccordImageUrl,
 	getAccordColorBand,
@@ -189,7 +189,7 @@ export function AccordCard({ accord, onEdit, onDelete }: AccordCardProps) {
 			)}
 
 			{hoveredAromachemical && (
-				<InfoCardPopover
+				<AromachemicalInfoCardPopover
 					aromachemical={
 						aromachemicals.find((a) => a.id === hoveredAromachemical.id)!
 					}

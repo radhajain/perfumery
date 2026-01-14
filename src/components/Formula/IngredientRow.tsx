@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FormulaIngredient } from '../../types/userdata';
 import { aromachemicals, families } from '../../data/perfumery-constants';
 import { useNavigation } from '../../hooks/useNavigation';
-import { InfoCardPopover } from '../common/InfoCardPopover';
+import { AromachemicalInfoCardPopover } from '../common/AromachemicalInfoCardPopover';
 import './IngredientRow.css';
 
 interface IngredientRowProps {
@@ -22,9 +22,7 @@ export function IngredientRow({
 		position: { x: number; y: number };
 	} | null>(null);
 
-	const aroma = aromachemicals.find(
-		(a) => a.id === ingredient.aromachemicalId
-	);
+	const aroma = aromachemicals.find((a) => a.id === ingredient.aromachemicalId);
 
 	if (!aroma) return null;
 
@@ -98,7 +96,7 @@ export function IngredientRow({
 			)}
 
 			{hoveredAromachemical && (
-				<InfoCardPopover
+				<AromachemicalInfoCardPopover
 					aromachemical={
 						aromachemicals.find((a) => a.id === hoveredAromachemical.id)!
 					}

@@ -1,7 +1,7 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { Header } from './components/Header/Header';
-import { NetworkGraph } from './components/NetworkGraph/NetworkGraph';
+import { NetworkGraph } from './components/AromachemicalNetworkGraph/AromachemicalNetworkGraph';
 import { AromachemicalDetailPanel } from './components/AromachemicalDetailPanel/AromachemicalDetailPanel';
 import { Legend } from './components/common/Legend';
 import { TabNavigation, TabType } from './components/Layout/TabNavigation';

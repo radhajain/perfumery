@@ -3,15 +3,14 @@ import { Aromachemical } from '../../types';
 import { aromachemicalImages, familyImages } from '../../data/image-library';
 import { families } from '../../data/perfumery-constants';
 
-interface InfoCardContentProps {
+interface AromachemicalInfoCardContentProps {
 	aromachemical: Aromachemical;
 	className?: string;
 }
 
-export const InfoCardContent: React.FC<InfoCardContentProps> = ({
-	aromachemical,
-	className = '',
-}) => {
+export const AromachemicalInfoCardContent: React.FC<
+	AromachemicalInfoCardContentProps
+> = ({ aromachemical, className = '' }) => {
 	const familyColor = families[aromachemical.family];
 	const imageUrl =
 		aromachemical.imageUrl ||
