@@ -26,6 +26,8 @@ export interface Accord {
 	aromachemicals: AccordIngredient[];
 	isPreDefined: boolean; // true for popular accords, false for custom
 	category?: 'classic' | 'modern' | 'niche'; // For pre-defined accords
+	imageUrl?: string; // Optional image URL, defaults to most prominent aromachemical's image
+	colorBand?: string[]; // Array of colors from constituent aromachemicals
 	createdAt: string;
 	updatedAt: string;
 }

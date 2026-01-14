@@ -11,20 +11,19 @@ import { PairingChip } from '../common/PairingChip';
 import { NoteEditor } from '../Notes/NoteEditor';
 import { AccordInfoCard } from '../common/AccordInfoCard';
 import { useUserData } from '../../contexts/UserDataContext';
+import { useNavigation } from '../../hooks/useNavigation';
 import { POPULAR_ACCORDS } from '../../data/popular-accords';
-import './DetailPanel.css';
+import './AromachemicalDetailPanel.css';
 
-interface DetailPanelProps {
+interface AromachemicalDetailPanelProps {
 	aromachemical: Aromachemical | null;
 	onClose: () => void;
-	onPairingClick: (id: number) => void;
 }
 
-export const DetailPanel: React.FC<DetailPanelProps> = ({
-	aromachemical,
-	onClose,
-	onPairingClick,
-}) => {
+export const AromachemicalDetailPanel: React.FC<
+	AromachemicalDetailPanelProps
+> = ({ aromachemical, onClose }) => {
+	const { navigateToAromachemical, navigateToAccord } = useNavigation();
 	const { customAccords } = useUserData();
 	const [hoveredAccord, setHoveredAccord] = useState<{
 		accordId: string;
@@ -111,7 +110,7 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({
 									name={pairing.name}
 									family={pairing.family}
 									familyColor={families[pairing.family]}
-									onClick={() => onPairingClick(pairingId)}
+									onClick={() => navigateToAromachemical(pairingId)}
 								/>
 							);
 						})}
@@ -132,6 +131,7 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({
 									<div
 										key={accord.id}
 										className="detail-panel__accord-chip"
+										onClick={() => navigateToAccord(accord.id)}
 										onMouseEnter={(e) => {
 											const rect = e.currentTarget.getBoundingClientRect();
 											setHoveredAccord({
@@ -215,7 +215,9 @@ export const DetailPanel: React.FC<DetailPanelProps> = ({
 
 			{hoveredAccord && (
 				<AccordInfoCard
-					accord={accordsUsingThis.find((a) => a.id === hoveredAccord.accordId)!}
+					accord={
+						accordsUsingThis.find((a) => a.id === hoveredAccord.accordId)!
+					}
 					position={hoveredAccord.position}
 				/>
 			)}

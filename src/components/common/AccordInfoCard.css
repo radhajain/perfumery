@@ -4,10 +4,41 @@
 	background: white;
 	border-radius: 8px;
 	box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-	overflow: visible;
+	overflow: hidden;
 	z-index: 1000;
 	pointer-events: none;
 	transform: translate(-50%, -100%) translateY(-12px);
+}
+
+.accord-info-card__color-band {
+	display: flex;
+	height: 4px;
+	width: 100%;
+}
+
+.accord-info-card__color-segment {
+	flex: 1;
+	min-width: 10px;
+}
+
+.accord-info-card__title-container {
+	display: flex;
+	gap: 8px;
+}
+
+/* Image container */
+.accord-info-card__image-container {
+	width: 100%;
+	height: 60px;
+	overflow: hidden;
+	position: relative;
+}
+
+.accord-info-card__image {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+	object-position: center;
 }
 
 .accord-info-card__content {

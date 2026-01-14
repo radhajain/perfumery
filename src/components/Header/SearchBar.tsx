@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Aromachemical, ScentFamily } from '../../types';
 import { families } from '../../data/perfumery-constants';
+import { useNavigation } from '../../hooks/useNavigation';
 import {
 	aromachemicalImages,
 	familyImages,
@@ -11,7 +12,6 @@ interface SearchBarProps {
 	value: string;
 	onChange: (value: string) => void;
 	aromachemicals: Aromachemical[];
-	onResultClick: (id: number) => void;
 }
 
 interface SearchResult {
@@ -26,8 +26,8 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 	value,
 	onChange,
 	aromachemicals,
-	onResultClick,
 }) => {
+	const { navigateToAromachemical } = useNavigation();
 	const [isOpen, setIsOpen] = useState(false);
 	const [results, setResults] = useState<SearchResult[]>([]);
 	const searchRef = useRef<HTMLDivElement>(null);
@@ -108,7 +108,7 @@ export const SearchBar: React.FC<SearchBarProps> = ({
 
 	const handleResultClick = (result: SearchResult) => {
 		if (result.type === 'aromachemical' && result.id) {
-			onResultClick(result.id);
+			navigateToAromachemical(result.id);
 			onChange('');
 			setIsOpen(false);
 		} else if (result.type === 'family') {

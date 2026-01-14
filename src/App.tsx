@@ -1,7 +1,8 @@
 import React, { useState, useMemo, useCallback, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Header } from './components/Header/Header';
 import { NetworkGraph } from './components/NetworkGraph/NetworkGraph';
-import { DetailPanel } from './components/DetailPanel/DetailPanel';
+import { AromachemicalDetailPanel } from './components/AromachemicalDetailPanel/AromachemicalDetailPanel';
 import { Legend } from './components/common/Legend';
 import { TabNavigation, TabType } from './components/Layout/TabNavigation';
 import { AccordsPanel } from './components/Accords/AccordsPanel';
@@ -15,6 +16,7 @@ import { calculateGraphLayout } from './utils/graphLayout';
 import { calculateEdges } from './utils/edgeCalculator';
 import { searchAromachemicals } from './utils/searchUtils';
 import { useDebounce } from './hooks/useDebounce';
+import { useNavigation } from './hooks/useNavigation';
 import { LayoutDimensions } from './types';
 import './styles/variables.css';
 import './styles/typography.css';
@@ -22,8 +24,11 @@ import './styles/animations.css';
 import './App.css';
 
 function App() {
+	const location = useLocation();
+	const { navigateToTab } = useNavigation();
 	const [activeTab, setActiveTab] = useState<TabType>('graph');
 	const [selectedNodeId, setSelectedNodeId] = useState<number | null>(null);
+	const [selectedAccordId, setSelectedAccordId] = useState<string | null>(null);
 	const [searchInput, setSearchInput] = useState('');
 	const [hoveredNodeId, setHoveredNodeId] = useState<number | null>(null);
 	const [highlightedNodeIds, setHighlightedNodeIds] = useState<Set<number>>(
@@ -31,6 +36,41 @@ function App() {
 	);
 
 	const debouncedSearch = useDebounce(searchInput, 300);
+
+	// Sync URL with state
+	useEffect(() => {
+		const params = new URLSearchParams(location.search);
+		const aromachemicalId = params.get('aromachemical');
+		const accordId = params.get('accord');
+		const tab = params.get('tab') as TabType | null;
+
+		if (tab && tab !== activeTab) {
+			setActiveTab(tab);
+		}
+
+		if (aromachemicalId) {
+			const id = parseInt(aromachemicalId, 10);
+			if (!isNaN(id) && id !== selectedNodeId) {
+				setSelectedNodeId(id);
+			}
+		} else if (selectedNodeId) {
+			setSelectedNodeId(null);
+		}
+
+		if (accordId && accordId !== selectedAccordId) {
+			setSelectedAccordId(accordId);
+		} else if (!accordId && selectedAccordId) {
+			setSelectedAccordId(null);
+		}
+	}, [activeTab, location.search, selectedAccordId, selectedNodeId]);
+
+	// Update URL when state changes - centralized handler
+	const updateURL = useCallback(
+		(tab: TabType, aromachemicalId?: number, accordId?: string) => {
+			navigateToTab(tab, aromachemicalId, accordId);
+		},
+		[navigateToTab]
+	);
 
 	const dimensions: LayoutDimensions = useMemo(
 		() => ({
@@ -83,9 +123,14 @@ function App() {
 		setHighlightedNodeIds(highlighted);
 	}, [searchResults, selectedNodeId]);
 
-	const handleNodeClick = useCallback((id: number) => {
-		setSelectedNodeId((prev) => (prev === id ? null : id));
-	}, []);
+	const handleNodeClick = useCallback(
+		(id: number) => {
+			const newId = selectedNodeId === id ? null : id;
+			setSelectedNodeId(newId);
+			updateURL('graph', newId ?? undefined);
+		},
+		[selectedNodeId, updateURL]
+	);
 
 	const handleNodeHover = useCallback((id: number | null) => {
 		setHoveredNodeId(id);
@@ -95,22 +140,24 @@ function App() {
 		setSearchInput(query);
 	}, []);
 
-	const handlePairingClick = useCallback((id: number) => {
-		setSelectedNodeId(id);
-	}, []);
-
 	const handleClosePanel = useCallback(() => {
 		setSelectedNodeId(null);
-	}, []);
+		updateURL(activeTab);
+	}, [activeTab, updateURL]);
 
-	const handleSearchResultClick = useCallback((id: number) => {
-		setSelectedNodeId(id);
-	}, []);
-
-	const handleAromachemicalClick = useCallback((id: number) => {
-		setSelectedNodeId(id);
-		setActiveTab('graph');
-	}, []);
+	const handleTabChange = useCallback(
+		(tab: TabType) => {
+			setActiveTab(tab);
+			if (tab === 'graph') {
+				updateURL(tab, selectedNodeId ?? undefined);
+			} else if (tab === 'accords') {
+				updateURL(tab, undefined, selectedAccordId ?? undefined);
+			} else {
+				updateURL(tab);
+			}
+		},
+		[selectedNodeId, selectedAccordId, updateURL]
+	);
 
 	return (
 		<div className="app">
@@ -118,9 +165,8 @@ function App() {
 				searchQuery={searchInput}
 				onSearchChange={handleSearchChange}
 				aromachemicals={aromachemicals}
-				onSearchResultClick={handleSearchResultClick}
 			/>
-			<TabNavigation activeTab={activeTab} onTabChange={setActiveTab} />
+			<TabNavigation activeTab={activeTab} onTabChange={handleTabChange} />
 			<main className="main-content">
 				{activeTab === 'graph' && (
 					<>
@@ -135,16 +181,17 @@ function App() {
 						/>
 						<Legend families={families} familyOrder={familyOrder} />
 						{selectedAromachemical && (
-							<DetailPanel
+							<AromachemicalDetailPanel
 								aromachemical={selectedAromachemical}
 								onClose={handleClosePanel}
-								onPairingClick={handlePairingClick}
 							/>
 						)}
 					</>
 				)}
-				{activeTab === 'accords' && <AccordsPanel onAromachemicalClick={handleAromachemicalClick} />}
-				{activeTab === 'formulas' && <FormulaBuilder onAromachemicalClick={handleAromachemicalClick} />}
+				{activeTab === 'accords' && (
+					<AccordsPanel selectedAccordId={selectedAccordId} />
+				)}
+				{activeTab === 'formulas' && <FormulaBuilder />}
 			</main>
 		</div>
 	);

@@ -7,11 +7,7 @@ import { FormulaCalculator } from './FormulaCalculator';
 import { AccordRating } from '../Accords/AccordRating';
 import './FormulaBuilder.css';
 
-interface FormulaBuilderProps {
-	onAromachemicalClick?: (id: number) => void;
-}
-
-export function FormulaBuilder({ onAromachemicalClick }: FormulaBuilderProps) {
+export function FormulaBuilder() {
 	const { formulas, addFormula, updateFormula, deleteFormula } = useUserData();
 	const [selectedFormulaId, setSelectedFormulaId] = useState<string | null>(
 		null
@@ -248,7 +244,6 @@ export function FormulaBuilder({ onAromachemicalClick }: FormulaBuilderProps) {
 											ingredient={ingredient}
 											onUpdate={(updates) => updateIngredient(index, updates)}
 											onRemove={() => removeIngredient(index)}
-											onAromachemicalClick={onAromachemicalClick}
 										/>
 									))}
 								</div>

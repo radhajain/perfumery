@@ -45,8 +45,8 @@
 
 .accords-panel__create-pill {
 	padding: 8px 16px;
-	background: #8B7355;
-	border: 1px solid #8B7355;
+	background: var(--color-taupe-dark);
+	border: 1px solid var(--color-taupe-dark);
 	border-radius: 20px;
 	font-size: 13px;
 	font-weight: 500;
@@ -57,14 +57,15 @@
 }
 
 .accords-panel__create-pill:hover {
-	background: #6F5B43;
-	border-color: #6F5B43;
+	background: var(--color-taupe-focus);
+	border-color: var(--color-taupe-focus);
 }
 
 .accords-panel__content {
 	flex: 1;
 	overflow-y: auto;
 	padding: 24px 40px;
+	background: var(--color-ivory);
 }
 
 .accords-panel__grid {

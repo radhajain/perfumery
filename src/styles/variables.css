@@ -1,50 +1,52 @@
 :root {
-  /* Fuegia Color Palette */
-  --color-ivory: #FAF8F5;
-  --color-taupe: #D4C4B4;
-  --color-warm-gray: #9B9B9B;
-  --color-charcoal: #6B6B6B;
-  --color-text-primary: #3A3A3A;
-  --color-text-secondary: #6B6B6B;
+	/* Fuegia Color Palette */
+	--color-ivory: #faf8f5;
+	--color-taupe: #d4c4b4;
+	--color-taupe-dark: #8b7355;
+	--color-taupe-focus: #6f5b43;
+	--color-warm-gray: #9b9b9b;
+	--color-charcoal: #6b6b6b;
+	--color-text-primary: #3a3a3a;
+	--color-text-secondary: #6b6b6b;
 
-  /* Family Colors (from data) */
-  --color-floral: #E8D5D5;
-  --color-citrus: #F5E6C8;
-  --color-woody: #D4C4A8;
-  --color-musk: #E5DDD5;
-  --color-amber: #DEB887;
-  --color-marine: #C5D8E8;
-  --color-green: #C8DBC8;
-  --color-gourmand: #E8D0C0;
-  --color-spicy: #D4A574;
-  --color-fruity: #F0D4D4;
-  --color-animalic: #C9B896;
+	/* Family Colors (from data) */
+	--color-floral: #e8d5d5;
+	--color-citrus: #f5e6c8;
+	--color-woody: #d4c4a8;
+	--color-musk: #e5ddd5;
+	--color-amber: #deb887;
+	--color-marine: #c5d8e8;
+	--color-green: #c8dbc8;
+	--color-gourmand: #e8d0c0;
+	--color-spicy: #d4a574;
+	--color-fruity: #f0d4d4;
+	--color-animalic: #c9b896;
 
-  /* Typography */
-  --font-serif: 'Cormorant Garamond', 'Georgia', serif;
-  --font-sans: 'Inter', 'Helvetica Neue', sans-serif;
+	/* Typography */
+	--font-serif: 'Cormorant Garamond', 'Georgia', serif;
+	--font-sans: 'Inter', 'Helvetica Neue', sans-serif;
 
-  /* Spacing */
-  --spacing-xs: 4px;
-  --spacing-sm: 8px;
-  --spacing-md: 16px;
-  --spacing-lg: 24px;
-  --spacing-xl: 32px;
-  --spacing-2xl: 48px;
+	/* Spacing */
+	--spacing-xs: 4px;
+	--spacing-sm: 8px;
+	--spacing-md: 16px;
+	--spacing-lg: 24px;
+	--spacing-xl: 32px;
+	--spacing-2xl: 48px;
 
-  /* Shadows */
-  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
+	/* Shadows */
+	--shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.06);
+	--shadow-md: 0 4px 12px rgba(0, 0, 0, 0.08);
+	--shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.12);
 
-  /* Transitions */
-  --transition-fast: 150ms ease;
-  --transition-base: 300ms ease;
-  --transition-slow: 500ms ease;
+	/* Transitions */
+	--transition-fast: 150ms ease;
+	--transition-base: 300ms ease;
+	--transition-slow: 500ms ease;
 
-  /* Border Radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-full: 9999px;
+	/* Border Radius */
+	--radius-sm: 4px;
+	--radius-md: 8px;
+	--radius-lg: 12px;
+	--radius-full: 9999px;
 }

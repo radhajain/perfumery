@@ -7,14 +7,12 @@ interface HeaderProps {
 	searchQuery: string;
 	onSearchChange: (query: string) => void;
 	aromachemicals: Aromachemical[];
-	onSearchResultClick: (id: number) => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
 	searchQuery,
 	onSearchChange,
 	aromachemicals,
-	onSearchResultClick,
 }) => {
 	return (
 		<header className="header">
@@ -27,7 +25,6 @@ export const Header: React.FC<HeaderProps> = ({
 					value={searchQuery}
 					onChange={onSearchChange}
 					aromachemicals={aromachemicals}
-					onResultClick={onSearchResultClick}
 				/>
 			</div>
 		</header>

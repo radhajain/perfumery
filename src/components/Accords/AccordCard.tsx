@@ -3,22 +3,22 @@ import { Accord } from '../../types/userdata';
 import { aromachemicals, families } from '../../data/perfumery-constants';
 import { AccordRating } from './AccordRating';
 import { useUserData } from '../../contexts/UserDataContext';
+import { useNavigation } from '../../hooks/useNavigation';
 import { InfoCardPopover } from '../common/InfoCardPopover';
+import {
+	getAccordImageUrl,
+	getAccordColorBand,
+} from '../../utils/accord-helpers';
 import './AccordCard.css';
 
 interface AccordCardProps {
 	accord: Accord;
 	onEdit?: () => void;
 	onDelete?: () => void;
-	onAromachemicalClick?: (id: number) => void;
 }
 
-export function AccordCard({
-	accord,
-	onEdit,
-	onDelete,
-	onAromachemicalClick,
-}: AccordCardProps) {
+export function AccordCard({ accord, onEdit, onDelete }: AccordCardProps) {
+	const { navigateToAromachemical } = useNavigation();
 	const { rateAccord, getAccordRating } = useUserData();
 	const [showNotes, setShowNotes] = useState(false);
 	const [userNotes, setUserNotes] = useState(
@@ -40,8 +40,27 @@ export function AccordCard({
 		setShowNotes(false);
 	};
 
+	const imageUrl = getAccordImageUrl(accord);
+	const colorBand = getAccordColorBand(accord);
+
 	return (
 		<div className="accord-card">
+			{/* Thumbnail image */}
+			<div className="accord-card__image-container">
+				<img src={imageUrl} alt={accord.name} className="accord-card__image" />
+			</div>
+
+			{/* Color band at the top */}
+			<div className="accord-card__color-band">
+				{colorBand.map((color, index) => (
+					<div
+						key={index}
+						className="accord-card__color-segment"
+						style={{ backgroundColor: color }}
+					/>
+				))}
+			</div>
+
 			<div className="accord-card__header">
 				<div>
 					<h3 className="accord-card__title">{accord.name}</h3>
@@ -73,16 +92,12 @@ export function AccordCard({
 									className="accord-card__ingredient"
 								>
 									<span
-										className={`accord-card__ingredient-badge ${
-											onAromachemicalClick
-												? 'accord-card__ingredient-badge--clickable'
-												: ''
-										}`}
+										className="accord-card__ingredient-badge accord-card__ingredient-badge--clickable"
 										style={{
 											backgroundColor: families[aroma.family],
 										}}
 										onClick={() =>
-											onAromachemicalClick?.(ingredient.aromachemicalId)
+											navigateToAromachemical(ingredient.aromachemicalId)
 										}
 										onMouseEnter={(e) => {
 											const rect = e.currentTarget.getBoundingClientRect();

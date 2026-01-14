@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { FormulaIngredient } from '../../types/userdata';
 import { aromachemicals, families } from '../../data/perfumery-constants';
+import { useNavigation } from '../../hooks/useNavigation';
 import { InfoCardPopover } from '../common/InfoCardPopover';
 import './IngredientRow.css';
 
@@ -8,15 +9,14 @@ interface IngredientRowProps {
 	ingredient: FormulaIngredient;
 	onUpdate: (updates: Partial<FormulaIngredient>) => void;
 	onRemove: () => void;
-	onAromachemicalClick?: (id: number) => void;
 }
 
 export function IngredientRow({
 	ingredient,
 	onUpdate,
 	onRemove,
-	onAromachemicalClick,
 }: IngredientRowProps) {
+	const { navigateToAromachemical } = useNavigation();
 	const [hoveredAromachemical, setHoveredAromachemical] = useState<{
 		id: number;
 		position: { x: number; y: number };
@@ -32,13 +32,11 @@ export function IngredientRow({
 		<div className="ingredient-row">
 			<div className="ingredient-row__info">
 				<span
-					className={`ingredient-row__badge ${
-						onAromachemicalClick ? 'ingredient-row__badge--clickable' : ''
-					}`}
+					className="ingredient-row__badge ingredient-row__badge--clickable"
 					style={{
 						backgroundColor: families[aroma.family],
 					}}
-					onClick={() => onAromachemicalClick?.(ingredient.aromachemicalId)}
+					onClick={() => navigateToAromachemical(ingredient.aromachemicalId)}
 					onMouseEnter={(e) => {
 						const rect = e.currentTarget.getBoundingClientRect();
 						setHoveredAromachemical({

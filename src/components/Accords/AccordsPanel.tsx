@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { POPULAR_ACCORDS } from '../../data/popular-accords';
 import { AccordCard } from './AccordCard';
 import { AccordCreator } from './AccordCreator';
@@ -7,13 +7,14 @@ import { AccordIngredient } from '../../types/userdata';
 import './AccordsPanel.css';
 
 interface AccordsPanelProps {
-	onAromachemicalClick?: (id: number) => void;
+	selectedAccordId?: string | null;
 }
 
-export function AccordsPanel({ onAromachemicalClick }: AccordsPanelProps) {
+export function AccordsPanel({ selectedAccordId }: AccordsPanelProps) {
 	const { customAccords, addAccord } = useUserData();
 	const [filter, setFilter] = useState<'all' | 'popular' | 'custom'>('all');
 	const [showCreator, setShowCreator] = useState(false);
+	const accordRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
 	const allAccords = useMemo(() => {
 		return [...POPULAR_ACCORDS, ...customAccords];
@@ -28,6 +29,30 @@ export function AccordsPanel({ onAromachemicalClick }: AccordsPanelProps) {
 		}
 		return allAccords;
 	}, [filter, customAccords, allAccords]);
+
+	// Scroll to and highlight selected accord
+	useEffect(() => {
+		if (selectedAccordId && accordRefs.current[selectedAccordId]) {
+			const element = accordRefs.current[selectedAccordId];
+			if (element) {
+				// Scroll to the element
+				element.scrollIntoView({
+					behavior: 'smooth',
+					block: 'center',
+				});
+
+				// Add highlight class
+				element.classList.add('accord-card--highlighted');
+
+				// Remove highlight after animation
+				const timer = setTimeout(() => {
+					element.classList.remove('accord-card--highlighted');
+				}, 2000);
+
+				return () => clearTimeout(timer);
+			}
+		}
+	}, [selectedAccordId]);
 
 	const handleCreateAccord = (accord: {
 		name: string;
@@ -104,11 +129,14 @@ export function AccordsPanel({ onAromachemicalClick }: AccordsPanelProps) {
 						</div>
 					) : (
 						filteredAccords.map((accord) => (
-							<AccordCard
+							<div
 								key={accord.id}
-								accord={accord}
-								onAromachemicalClick={onAromachemicalClick}
-							/>
+								ref={(el) => {
+									accordRefs.current[accord.id] = el;
+								}}
+							>
+								<AccordCard accord={accord} />
+							</div>
 						))
 					)}
 				</div>
