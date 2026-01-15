@@ -1,11 +1,15 @@
 # Perfumery - Interactive Aromachemical Explorer & Formula Builder
 
-An interactive visualization and learning tool for exploring aromachemicals, building custom accords, and creating complete fragrance formulas. This project displays 51 essential perfume ingredients as an interactive network graph, provides curated classic and modern accords, and allows users to build and save their own fragrance formulations.
+An interactive visualization and learning tool for exploring aromachemicals, building custom accords, and creating complete fragrance formulas. This project displays 51 essential perfume ingredients as an interactive network graph, provides curated classic and modern accords, and allows users to build and save their own fragrance formulations. These match the chemicals that can be bought [here](https://shop.perfumersapprentice.com/p-6632-beginners-aromachemical-kit.aspx). 
 
-<img width="2712" height="1554" alt="CleanShot 2026-01-13 at 21 33 38@2x" src="https://github.com/user-attachments/assets/cc9dc869-9353-4ff4-89ba-43e495dcb674" />
+<img width="2352" height="1356" alt="CleanShot 2026-01-15 at 15 20 41@2x" src="https://github.com/user-attachments/assets/f188ad7f-7ec3-453c-ac3f-5daf42c6a763" />
+<img width="2716" height="1554" alt="CleanShot 2026-01-13 at 23 37 50@2x" src="https://github.com/user-attachments/assets/e5338da3-a9e0-4d3b-8a62-95c38a0b9b4c" />
+
+
 <img width="2714" height="1540" alt="CleanShot 2026-01-13 at 21 33 55@2x" src="https://github.com/user-attachments/assets/e16a4a7f-35ed-48aa-b4a2-2968c37f1406" />
-<img width="2688" height="1560" alt="CleanShot 2026-01-13 at 21 34 12@2x" src="https://github.com/user-attachments/assets/d8968f9f-b86d-4b98-b11e-f9956ee617de" />
+
 <img width="2340" height="1342" alt="CleanShot 2026-01-13 at 21 44 55@2x" src="https://github.com/user-attachments/assets/cb0046a2-00ad-4e38-9fd3-e462d2afe691" />
+<img width="2712" height="1554" alt="CleanShot 2026-01-13 at 21 33 38@2x" src="https://github.com/user-attachments/assets/cc9dc869-9353-4ff4-89ba-43e495dcb674" />
 
 ## What It Does
 
@@ -27,14 +31,14 @@ Perfumery is a React-based web app that provides a comprehensive toolkit for lea
 
 ### Classic & Modern Accords Library
 
-- **10 Pre-Defined Accords**: Explore famous building blocks including:
+- **10 Pre-Defined Accords**: Includes famous building blocks such as:
   - **Classic Accords**: Fougère, Chypre, Oriental Amber, White Floral
   - **Modern Accords**: Aquatic/Ozonic, Rose Tea, Gourmand Praline, Woody Amber, Skin Musk
   - **Niche Accords**: Green Fig
 - **Color-Coded Visualization**: Each accord displays a color band derived from its constituent aromachemicals' scent families
 - **Smart Image Defaults**: Accords automatically inherit imagery from their most prominent aromachemical
 - **Detailed Breakdowns**: See the exact percentage and role of each aromachemical in classic formulations
-- **Rate & Review**: Add your own notes and ratings to pre-defined accords
+- **Rate & Review**: You can add your own notes and ratings to pre-defined accords
 
 ### Custom Accord & Formula Builder
 
@@ -42,17 +46,7 @@ Perfumery is a React-based web app that provides a comprehensive toolkit for lea
 - **Formula Development**: Develop complete fragrance formulas with weight-based measurements
 - **Dilution Tracking**: Specify dilution percentages for proper handling and safety
 - **Personal Notes System**: Add notes to individual aromachemicals, ingredients in accords, and complete formulas
-- **Persistent Storage**: All your custom accords, formulas, ratings, and notes are saved locally
-
-## Why Use This Tool
-
-This tool bridges the gap between theory and practice in perfumery:
-
-- **Learn the Architecture**: Understand how top notes (fleeting), middle notes (the heart), and base notes (long-lasting fixatives) work together
-- **Study the Masters**: Deconstruct classic accords to learn composition techniques used in legendary fragrances
-- **Experiment Safely**: Build and iterate on formulas digitally before investing in expensive materials
-- **Track Your Progress**: Keep detailed notes and ratings as you develop your olfactory skills
-- **Visualize Relationships**: See how different scent families and aromachemicals interact and complement each other
+- **Local Storage**: Custom accords, formulas, ratings, and notes are saved locally
 
 ---
 
